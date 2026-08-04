@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <title>Investment | Ascend Ops</title>
+  <meta name="description" content="Every infrastructure project starts with architecture, not assumptions. Systems Architecture Audit, investment guide, and guarantees.">
+  <link rel="canonical" href="https://ascendops.co/Price.dc.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Investment | Ascend Ops">
+  <meta property="og:description" content="Every infrastructure project starts with architecture, not assumptions. Systems Architecture Audit, investment guide, and guarantees.">
+  <meta property="og:url" content="https://ascendops.co/Price.dc.html">
+  <meta property="og:image" content="https://ascendops.co/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Investment | Ascend Ops">
+  <meta name="twitter:description" content="Every infrastructure project starts with architecture, not assumptions. Systems Architecture Audit, investment guide, and guarantees.">
+  <meta name="twitter:image" content="https://ascendops.co/assets/og-image.png">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why isn\u2019t the Assessment free?","acceptedAnswer":{"@type":"Answer","text":"It is a structured assessment that evaluates how your business operates today and determines whether infrastructure is the right investment. If you proceed with implementation, the assessment fee is credited in full."}},{"@type":"Question","name":"Can I do the Audit and not proceed with a build?","acceptedAnswer":{"@type":"Answer","text":"Yes. You keep all three deliverables \u2014 the Ops Canvas, Opportunity Matrix, and ROI Calculator."}},{"@type":"Question","name":"What if the ROI Calculator doesn\u2019t make a compelling case?","acceptedAnswer":{"@type":"Answer","text":"Then we tell you. If the numbers don\u2019t justify the build right now, we say so."}},{"@type":"Question","name":"Do you work with brands outside D2C / eCommerce?","acceptedAnswer":{"@type":"Answer","text":"No. D2C is the only vertical we work in."}}]}</script>
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/styles.css">
+  <script src="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/_ds_bundle.js"></script>
+  <style>
+    :root {
+      --page-blue: #3D5AFC;
+      --page-blue-tint: #EEF1FE;
+      --page-blue-border: #D6DCFB;
+      --page-purple: #7C7CF0;
+      --page-orange: #E8A063;
+      --page-green: #3FB950;
+    }
+    body { margin: 0; background: #FBFBFD; overflow-x: hidden; }
+    a { color: var(--page-blue); }
+    a:hover { opacity: 0.75; }
+    img, svg { max-width: 100%; }
+    @media (max-width: 860px) {
+      .rg2, .rg3, .rg4 { grid-template-columns: 1fr !important; }
+      .rg6 { grid-template-columns: repeat(2,1fr) !important; }
+      h1 { font-size: clamp(1.6rem,7vw,2rem) !important; line-height: 1.2 !important; }
+      .hero-cta { width: 100% !important; min-height: 48px !important; box-sizing: border-box; justify-content: center !important; }
+      .hero-cta-row { flex-direction: column !important; width: 100% !important; }
+      section { padding-left: 20px !important; padding-right: 20px !important; }
+    }
+    @media (max-width: 480px) {
+      .rg6 { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 860px) {
+      .inv-check-mobile { display: flex !important; }
+    }
+  </style>
+</helmet>
+
+<div data-screen-label="Price" style="background:#FBFBFD;">
+
+<dc-import name="SiteNav" active-page="price" hint-size="100%,76px"></dc-import>
+
+<!-- HERO -->
+<section style="position:relative;overflow:hidden;background:linear-gradient(180deg,#F4F3FB 0%,#FBFBFD 55%);padding:56px 32px 64px;font-family:var(--font-body);">
+  <style>
+    @keyframes invDashFlow { to { stroke-dashoffset:-40; } }
+    @keyframes invPulse { 0%,100%{opacity:.55;transform:scale(1);} 50%{opacity:1;transform:scale(1.06);} }
+    @media (max-width:1120px){ .inv-hero-grid{grid-template-columns:1fr!important;} }
+    @media (max-width:1120px){ .inv-engine-grid{grid-template-columns:1fr 1fr!important;} .inv-engine-mid{grid-column:1 / -1!important;order:-1;} .inv-connect{display:none!important;} }
+    @media (max-width:860px){ .inv-engine-grid{grid-template-columns:1fr!important;} .inv-result-grid{grid-template-columns:1fr!important;gap:16px!important;} .inv-input-col{order:1!important;} .inv-engine-mid{order:2!important;} .inv-output-col{order:3!important;} }
+    @media (max-width:520px){ .inv-bottom-grid{grid-template-columns:1fr!important;} .inv-checks{flex-direction:column;align-items:flex-start!important;} }
+    @media (max-width:860px){
+      .inv-exec-line{display:none!important;}
+      .inv-close-checks{display:grid!important;grid-template-columns:1fr 1fr!important;gap:14px 16px!important;}
+      .inv-engine-mid{min-height:0!important;}
+      .inv-bottom-grid{display:none!important;}
+    }
+  </style>
+  <div aria-hidden="true" style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;">
+    <svg width="100%" height="100%" style="position:absolute;inset:0;-webkit-mask-image:radial-gradient(ellipse 70% 65% at 50% 40%, black 20%, transparent 85%);mask-image:radial-gradient(ellipse 70% 65% at 50% 40%, black 20%, transparent 85%);">
+      <defs><pattern id="prcHeroGrid" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="1.4" cy="1.4" r="1" fill="#6C5CE7" opacity="0.2"></circle></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#prcHeroGrid)"></rect>
+    </svg>
+  </div>
+  <div class="inv-hero-grid" style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:minmax(300px,392px) 1fr;gap:48px;align-items:start;position:relative;z-index:1;">
+    <!-- LEFT -->
+    <div>
+      <div style="font-family:var(--font-mono);font-weight:600;font-size:0.78rem;letter-spacing:0.16em;color:#6C5CE7;margin-bottom:20px;">/ INVESTMENT</div>
+      <h1 style="font-family:var(--font-body);font-weight:600;letter-spacing:-0.03em;line-height:1.06;font-size:clamp(2.1rem,3.4vw,2.9rem);color:var(--black);margin:0 0 22px;">The most costly decision is building the <span style="color: rgb(108, 92, 231);" rtrvr-ls="5~hs,6~hs,8~hs,9~hs" rtrvr-ro="42">wrong infrastructure.</span></h1>
+      <p style="font-family:var(--font-body);font-weight:600;font-size:1rem;line-height:1.6;color:var(--gray-1);margin:0 0 26px;max-width:420px;">Your Architecture Assessment helps you validate and understand the opportunity before implementation.</p>
+      <div style="display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid #ECEAF6;border-radius:14px;padding:16px 20px;margin-bottom:24px;box-shadow:0 8px 24px rgba(60,50,140,0.05);">
+        <span style="width:44px;height:44px;border-radius:11px;background:#F3F1FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="1.7" stroke-linejoin="round"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"></path></svg></span>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:600;font-size:0.9rem;color:var(--black);">Systems Architecture Assessment</div>
+          <div style="font-weight:700;font-size:1.7rem;line-height:1.15;color:var(--black);">$750</div>
+        </div>
+        <div>
+          <div style="font-weight:600;font-size:0.78rem;line-height:1.35;color:#6C5CE7;max-width:130px;">Credited in full at implementation.</div>
+          <div style="font-weight:600;font-size:0.78rem;line-height:1.35;color:var(--gray-1);max-width:130px;margin-top:6px;">Refunded if we find no gaps.</div>
+        </div>
+      </div>
+      <div class="inv-checks" style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:28px;">
+        <div style="display:flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg><span style="font-weight:600;font-size:0.9rem;color:var(--black);">No guesswork.</span></div><div style="display:flex;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg><span style="font-weight:600;font-size:0.9rem;color:var(--black);">Clear direction.</span></div><div class="inv-check-mobile" style="display:none;align-items:center;gap:8px;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg><span style="font-weight:600;font-size:0.9rem;color:var(--black);">Executive-level assessment.</span></div>
+      </div>
+      <div class="hero-cta-row" style="display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:20px;">
+        <a href="https://tally.so/r/2EyKqD?utm_source=site&amp;utm_medium=cta&amp;utm_campaign=price_hero" target="_blank" rel="noopener noreferrer" class="hero-cta" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-weight:600;font-size:0.95rem;background:var(--black);color:var(--white);padding:15px 24px;border-radius:12px;text-decoration:none;transition:box-shadow .2s ease,opacity .2s ease;" style-hover="opacity:0.9;box-shadow:0 8px 24px rgba(108,92,231,0.28);">Get Your Architecture Assessment <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+        <a href="Process.dc.html" style="display:inline-flex;align-items:center;gap:7px;font-family:var(--font-body);font-weight:600;font-size:0.92rem;color:var(--black);text-decoration:none;">See Our Methodology <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+      </div>
+      <div class="inv-exec-line" style="display:flex;align-items:center;gap:8px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A6A2B6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+        <span style="font-weight:600;font-size:0.82rem;color:#A6A2B6;">Executive-level assessment.</span>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div style="min-width:0;">
+    <div style="background:var(--white);border:1px solid #ECEAF6;border-radius:20px;padding:26px 28px;box-shadow:0 18px 46px rgba(60,50,140,0.08);">
+      <div class="inv-engine-grid" style="display:grid;grid-template-columns:200px 1fr 210px;gap:20px;align-items:start;">
+        <!-- inputs -->
+        <div class="inv-input-col">
+          <div style="font-family:var(--font-mono);font-weight:600;font-size:0.62rem;letter-spacing:0.12em;color:#6C5CE7;margin-bottom:14px;">Your Business Input</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:10px 14px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><span style="width:26px;height:26px;border-radius:7px;background:#F5F4FB;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"></path></svg></span><span style="font-weight:600;font-size:0.85rem;color:#141018;">Website</span></div><div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:10px 14px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><span style="width:26px;height:26px;border-radius:7px;background:#F5F4FB;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#95BF47" stroke="none"><path d="M15.3 4.2c-.1 0-1.9.1-1.9.1s-1.2-1.2-1.4-1.3c-.1-.1-.3-.1-.4 0-.1 0-.3 1-.3 1-.9.3-1.9.6-1.9.6-.6.2-.6.2-.7.8C7.6 6.9 6 19.4 6 19.4l9.9 1.9V4.2z"></path></svg></span><span style="font-weight:600;font-size:0.85rem;color:#141018;">Shopify</span></div><div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:10px 14px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><span style="width:26px;height:26px;border-radius:7px;background:#F5F4FB;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="16" height="14" viewBox="0 0 24 24" fill="none" stroke="#1877F2" stroke-width="2" stroke-linecap="round"><path d="M4 15c0-4 2-7 4-7s3 2 4 5 2 5 4 5 4-3 4-7-2-7-4-7-3 2-4 5-2 5-4 5-4-3-4-7"></path></svg></span><span style="font-weight:600;font-size:0.85rem;color:#141018;">Meta Ads</span></div><div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:10px 14px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><span style="width:26px;height:26px;border-radius:7px;background:#F5F4FB;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.6 1.5A3.5 3.5 0 0 0 6 19z"></path></svg></span><span style="font-weight:600;font-size:0.85rem;color:#141018;">CRM</span></div><div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:10px 14px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><span style="width:26px;height:26px;border-radius:7px;background:#F5F4FB;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3FB950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"></path><circle cx="12" cy="19.5" r="0.6" fill="#3FB950"></circle></svg></span><span style="font-weight:600;font-size:0.85rem;color:#141018;">Klaviyo</span></div><div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:10px 14px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><span style="width:26px;height:26px;border-radius:7px;background:#F5F4FB;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-2a8 8 0 0 1 16 0v2"></path><rect x="2.5" y="14" width="4" height="6" rx="1.5"></rect><rect x="17.5" y="14" width="4" height="6" rx="1.5"></rect></svg></span><span style="font-weight:600;font-size:0.85rem;color:#141018;">Helpdesk</span></div><div style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:10px 14px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><span style="width:26px;height:26px;border-radius:7px;background:#F5F4FB;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8A8698" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.66 3.6 3 8 3s8-1.34 8-3V5"></path><path d="M4 12c0 1.66 3.6 3 8 3s8-1.34 8-3"></path></svg></span><span style="font-weight:600;font-size:0.85rem;color:#141018;">ERP / POS</span></div>
+          </div>
+        </div>
+        <!-- engine -->
+        <div class="inv-engine-mid" style="position:relative;min-height:420px;display:flex;flex-direction:column;">
+          <div style="text-align:center;font-family:var(--font-mono);font-weight:600;font-size:0.62rem;letter-spacing:0.12em;color:#6C5CE7;margin-bottom:14px;">Ascend Ops ENGINE</div>
+          <div style="position:relative;flex:1;display:flex;align-items:center;justify-content:center;overflow:visible;">
+            <!-- halo rings -->
+            <svg viewBox="0 0 420 420" width="86%" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;" aria-hidden="true">
+              <defs><radialGradient id="invHalo" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(124,108,240,0.10)"></stop><stop offset="70%" stop-color="rgba(124,108,240,0.03)"></stop><stop offset="100%" stop-color="rgba(124,108,240,0)"></stop></radialGradient></defs>
+              <circle cx="210" cy="210" r="200" fill="url(#invHalo)"></circle>
+              <circle cx="210" cy="210" r="190" fill="none" stroke="#EDEAF8" stroke-width="1"></circle>
+              <circle cx="210" cy="210" r="150" fill="none" stroke="#EDEAF8" stroke-width="1"></circle>
+              <circle cx="210" cy="210" r="112" fill="none" stroke="#E7E2F6" stroke-width="1"></circle>
+              <g style="transform-origin:210px 210px;animation:invPulse 5s ease-in-out infinite;"><circle cx="210" cy="210" r="150" fill="none" stroke="#D9D2F2" stroke-width="1" stroke-dasharray="1 12"></circle></g>
+            </svg>
+            <!-- connectors -->
+            <svg class="inv-connect" viewBox="0 0 400 360" preserveAspectRatio="none" width="100%" height="100%" style="position:absolute;inset:0;z-index:2;overflow:visible;" aria-hidden="true">
+              <defs>
+                <linearGradient id="invLeftG" x1="0" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#7FB0F5"></stop><stop offset="100%" stop-color="#9B8DF5"></stop></linearGradient>
+                <linearGradient id="invRightG" x1="400" y1="0" x2="200" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#A99CF7"></stop><stop offset="100%" stop-color="#8A8CF2"></stop></linearGradient>
+                <filter id="invGlow" x="-300%" y="-300%" width="700%" height="700%"><feGaussianBlur stdDeviation="2.4" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+              </defs>
+              <g fill="none" opacity="0.85"><path d="M2,64 C120,64 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.2" stroke-dasharray="2 5" style="animation:invDashFlow 2.6s linear infinite;"></path><path d="M2,104 C120,104 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.5"></path><path d="M2,144 C120,144 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.2" stroke-dasharray="2 5" style="animation:invDashFlow 2.6s linear infinite;"></path><path d="M2,172 C120,172 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.5"></path><path d="M2,196 C120,196 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.2" stroke-dasharray="2 5" style="animation:invDashFlow 2.6s linear infinite;"></path><path d="M2,224 C120,224 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.5"></path><path d="M2,264 C120,264 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.2" stroke-dasharray="2 5" style="animation:invDashFlow 2.6s linear infinite;"></path><path d="M2,304 C120,304 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.5"></path><path d="M2,336 C120,336 120,180 156,180" stroke="url(#invLeftG)" stroke-width="1.2" stroke-dasharray="2 5" style="animation:invDashFlow 2.6s linear infinite;"></path><path d="M398,80 C280,80 280,180 244,180" stroke="url(#invRightG)" stroke-width="1.5"></path><path d="M398,120 C280,120 280,180 244,180" stroke="url(#invRightG)" stroke-width="1.2" stroke-dasharray="2 5" style="animation:invDashFlow 2.6s linear infinite;"></path><path d="M398,152 C280,152 280,180 244,180" stroke="url(#invRightG)" stroke-width="1.5"></path><path d="M398,184 C280,184 280,180 244,180" stroke="url(#invRightG)" stroke-width="1.2" stroke-dasharray="2 5" style="animation:invDashFlow 2.6s linear infinite;"></path><path d="M398,214 C280,214 280,180 244,180" stroke="url(#invRightG)" stroke-width="1.5"></path><path d="M398,252 C280,252 280,180 244,180" stroke="url(#invRightG)" stroke-width="1.2" stroke-dasharray="2 5" style="animation:invDashFlow 2.6s linear infinite;"></path><path d="M398,292 C280,292 280,180 244,180" stroke="url(#invRightG)" stroke-width="1.5"></path></g>
+              <circle cx="2" cy="64" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="2" cy="104" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="2" cy="144" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="2" cy="172" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="2" cy="196" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="2" cy="224" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="2" cy="264" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="2" cy="304" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="2" cy="336" r="3" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="398" cy="80" r="3" fill="#9B8DF5" filter="url(#invGlow)"></circle><circle cx="398" cy="120" r="3" fill="#9B8DF5" filter="url(#invGlow)"></circle><circle cx="398" cy="152" r="3" fill="#9B8DF5" filter="url(#invGlow)"></circle><circle cx="398" cy="184" r="3" fill="#9B8DF5" filter="url(#invGlow)"></circle><circle cx="398" cy="214" r="3" fill="#9B8DF5" filter="url(#invGlow)"></circle><circle cx="398" cy="252" r="3" fill="#9B8DF5" filter="url(#invGlow)"></circle><circle cx="398" cy="292" r="3" fill="#9B8DF5" filter="url(#invGlow)"></circle><circle cx="156" cy="180" r="2.6" fill="#6EA8F5" filter="url(#invGlow)"></circle><circle cx="244" cy="180" r="2.6" fill="#9B8DF5" filter="url(#invGlow)"></circle><circle cx="96" cy="140" r="2" fill="#8FC0F7"></circle><circle cx="300" cy="150" r="2" fill="#AEA2F8"></circle><circle cx="110" cy="250" r="2" fill="#8FC0F7"></circle><circle cx="292" cy="252" r="2" fill="#AEA2F8"></circle>
+            </svg>
+            <!-- hexagon -->
+            <div style="position:relative;z-index:3;width:132px;height:150px;display:flex;align-items:center;justify-content:center;">
+              <div style="position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(124,108,240,0.34),transparent 68%);animation:invPulse 4s ease-in-out infinite;"></div>
+              <svg viewBox="0 0 148 164" width="100%" style="position:relative;z-index:1;overflow:visible;filter:drop-shadow(0 18px 30px rgba(108,92,231,0.42));" aria-hidden="true">
+                <defs>
+                  <linearGradient id="invHexFill" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#9E8FF7"></stop><stop offset="52%" stop-color="#7A67EE"></stop><stop offset="100%" stop-color="#5B47D6"></stop></linearGradient>
+                  <linearGradient id="invHexHi" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(255,255,255,0.45)"></stop><stop offset="100%" stop-color="rgba(255,255,255,0)"></stop></linearGradient>
+                </defs>
+                <polygon points="74,10 132,44 132,120 74,154 16,120 16,44" fill="url(#invHexFill)" stroke="url(#invHexFill)" stroke-width="16" stroke-linejoin="round"></polygon>
+                <polygon points="74,12 128,44 128,80 20,80 20,44" fill="url(#invHexHi)" opacity="0.7"></polygon>
+              </svg>
+              <img src="assets/logo-mark-white.png" alt="" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:auto;z-index:2;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.35));" loading="eager" decoding="async">
+            </div>
+          </div>
+        </div>
+                <!-- outputs -->
+        <div class="inv-output-col">
+          <div style="font-family:var(--font-mono);font-weight:600;font-size:0.62rem;letter-spacing:0.12em;color:#6C5CE7;margin-bottom:14px;text-align:left;">Your Operational Output</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <div style="background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:11px 13px;box-shadow:0 4px 12px rgba(60,50,140,0.04);display:flex;align-items:center;gap:11px;">
+              <span style="width:40px;height:40px;border-radius:50%;flex-shrink:0;background:conic-gradient(#6C5CE7 0 72%,#ECEAF6 72% 100%);display:flex;align-items:center;justify-content:center;"><span style="width:29px;height:29px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.6rem;color:#141018;">72%</span></span>
+              <div style="flex:1;min-width:0;"><div style="font-weight:600;font-size:0.78rem;color:#141018;">Operational Readiness</div><div style="display:flex;align-items:center;gap:6px;"><span style="font-weight:600;font-size:0.7rem;color:#8A8698;">Score</span><span style="font-weight:600;font-size:0.62rem;color:#3FB950;background:#EAF7EC;border-radius:5px;padding:1px 6px;">Good</span></div></div>
+            </div>
+            <div style="background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:11px 13px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><div style="font-weight:600;font-size:0.72rem;color:#141018;margin-bottom:3px;">Top Constraints</div><div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:baseline;gap:7px;"><span style="font-weight:700;font-size:1.3rem;color:#141018;">3</span><span style="font-weight:600;font-size:0.7rem;color:#8A8698;">High Impact</span></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8A063" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"></path><path d="M12 10v4M12 17h.01"></path></svg></div></div>
+            <div style="background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:11px 13px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><div style="font-weight:600;font-size:0.72rem;color:#8A8698;margin-bottom:2px;">Estimated Annual Impact</div><div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-weight:700;font-size:1.15rem;color:#141018;">$186,000</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3FB950" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"></path></svg></div><div style="font-weight:600;font-size:0.66rem;color:#8A8698;">Potential Savings</div></div>
+            <div style="background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:11px 13px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><div style="font-weight:600;font-size:0.72rem;color:#141018;margin-bottom:2px;">Projected ROI</div><div style="display:flex;align-items:center;justify-content:space-between;"><div><div style="font-weight:700;font-size:1.2rem;color:#141018;line-height:1;">4.3x</div><div style="font-weight:600;font-size:0.66rem;color:#8A8698;">12 Month View</div></div><svg width="52" height="26" viewBox="0 0 52 26" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 L14 16 L26 18 L38 8 L50 3"></path></svg></div></div>
+            <div style="background:#fff;border:1px solid #ECEAF6;border-radius:12px;padding:11px 13px;box-shadow:0 4px 12px rgba(60,50,140,0.04);"><div style="font-weight:600;font-size:0.72rem;color:#141018;margin-bottom:2px;">Confidence Level</div><div style="display:flex;align-items:center;justify-content:space-between;"><div style="display:flex;align-items:baseline;gap:7px;"><span style="font-weight:700;font-size:1.2rem;color:#141018;">96%</span><span style="font-weight:600;font-size:0.7rem;color:#8A8698;">High</span></div><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3FB950" stroke-width="2" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"></path><path d="M9 12l2 2 4-4"></path></svg></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- assessment result -->
+      
+    </div>
+      <!-- inputs→outcomes steps -->
+  <div class="inv-bottom-grid" style="margin:16px 0 0;width:100%;max-width:860px;margin-left:auto;margin-right:auto;box-sizing:border-box;display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+    <div style="display:flex;align-items:flex-start;gap:13px;padding:22px 22px;background:var(--white);border:1px solid #ECEAF6;border-radius:16px;box-shadow:0 10px 26px rgba(60,50,140,0.05);"><span style="width:42px;height:42px;border-radius:50%;background:#F3F1FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg></span><div><div style="font-weight:600;font-size:0.95rem;color:#141018;margin-bottom:4px;">Understand</div><div style="font-weight:600;font-size:0.8rem;line-height:1.45;color:#8A8698;">Map systems, data flows and operational gaps.</div></div></div>
+    <div style="display:flex;align-items:flex-start;gap:13px;padding:22px 22px;background:var(--white);border:1px solid #ECEAF6;border-radius:16px;box-shadow:0 10px 26px rgba(60,50,140,0.05);"><span style="width:42px;height:42px;border-radius:50%;background:#F3F1FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><rect x="7" y="11" width="3" height="6"></rect><rect x="13" y="7" width="3" height="10"></rect></svg></span><div><div style="font-weight:600;font-size:0.95rem;color:#141018;margin-bottom:4px;">Quantify</div><div style="font-weight:600;font-size:0.8rem;line-height:1.45;color:#8A8698;">Calculate the financial impact of fixing what matters.</div></div></div>
+    <div style="display:flex;align-items:flex-start;gap:13px;padding:22px 22px;background:var(--white);border:1px solid #ECEAF6;border-radius:16px;box-shadow:0 10px 26px rgba(60,50,140,0.05);"><span style="width:42px;height:42px;border-radius:50%;background:#F3F1FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5h5"></path><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M8 13h8M8 17h5"></path></svg></span><div><div style="font-weight:600;font-size:0.95rem;color:#141018;margin-bottom:4px;">Blueprint</div><div style="font-weight:600;font-size:0.8rem;line-height:1.45;color:#8A8698;">Receive a prioritized architecture roadmap tailored to your stack.</div></div></div>
+    <div style="display:flex;align-items:flex-start;gap:13px;padding:22px 22px;background:var(--white);border:1px solid #ECEAF6;border-radius:16px;box-shadow:0 10px 26px rgba(60,50,140,0.05);"><span style="width:42px;height:42px;border-radius:50%;background:#F3F1FD;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg></span><div><div style="font-weight:600;font-size:0.95rem;color:#141018;margin-bottom:4px;">Decide</div><div style="font-weight:600;font-size:0.8rem;line-height:1.45;color:#8A8698;">Invest with confidence. Build, or don't build with clarity.</div></div></div>
+  </div>
+      <div style="margin:16px 0 0;display:flex;align-items:center;justify-content:center;gap:9px;">
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1200px;margin:0 auto;border-top:1px solid var(--border-light);"></div>
+
+<!-- WE DON'T PRICE SOFTWARE -->
+<section ref="{{reveal}}" style="padding:56px 32px;">
+  <div class="rg2" style="max-width:1200px;margin:0 auto;background:var(--off-white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:40px;display:grid;grid-template-columns:0.9fr 1.5fr;gap:40px;align-items:center;">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div style="width:52px;height:52px;border-radius:var(--radius-md);background:var(--black);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linejoin="round"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"></path></svg>
+      </div>
+      <div style="font-family:var(--font-heading);font-weight:800;letter-spacing:var(--tracking-tight);color:var(--black);font-size:1.5rem;line-height:1.2;">Each investment is engineered, not estimated.<br></div>
+    </div>
+    <div class="rg2" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+      <div style="font:var(--text-body-sm);color:var(--gray-1);"><p data-start="827" data-end="863" rtrvr-ls="5~hs,6~hs,8~hs,9~hs" class="PDq2pG_selectionAnchorContainer" rtrvr-ro="42">Every business operates differently.<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p data-start="865" data-end="1001" rtrvr-ls="5~hs,6~hs,8~hs,9~hs" rtrvr-ro="42">Existing systems, operational maturity, data quality, and internal processes all shape the infrastructure required to solve the problem.</p>
+<p data-start="1003" data-end="1182" rtrvr-ls="0~hs,5~hs,6~hs,8~hs,9~hs" rtrvr-ro="42">That's why implementation isn't priced before understanding the business. The Systems Architecture Assessment exists to<b> replace assumptions with informed decisions</b>, for both of us.</p>
+<p data-start="1184" data-end="1280" rtrvr-ls="0~hs,5~hs,6~hs,8~hs,9~hs" rtrvr-ro="42"><br></p></div>
+
+      <div style="position:relative;height:100%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--page-blue-border);border-radius:var(--radius-lg);background:var(--white);padding:22px;overflow:hidden;">
+        <div aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(var(--page-blue-border) 1px, transparent 1px), linear-gradient(90deg, var(--page-blue-border) 1px, transparent 1px);background-size:16px 16px;opacity:0.35;-webkit-mask-image:linear-gradient(to bottom, black, transparent 90%);mask-image:linear-gradient(to bottom, black, transparent 90%);"></div>
+        <div style="position:relative;font-family:var(--font-mono);font-size:0.68rem;letter-spacing:var(--tracking-mono);color:var(--page-blue);margin-bottom:16px;">/ spec, not a guess</div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:28px;height:28px;border-radius:8px;background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m21 21-4.3-4.3"></path></svg></span>
+            <span style="font:var(--text-body-sm);font-weight:600;color:var(--black);">Constraint identified</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:28px;height:28px;border-radius:8px;background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18.7 8 12 14.7l-3-3L4 17"></path></svg></span>
+            <span style="font:var(--text-body-sm);font-weight:600;color:var(--black);">Impact quantified</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span style="width:28px;height:28px;border-radius:8px;background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z"></path><path d="m8.5 11.5 2.3 2.3 4.7-4.7"></path></svg></span>
+            <span style="font:var(--text-body-sm);font-weight:600;color:var(--black);">Investment scoped</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section ref="{{reveal}}" style="position:relative;overflow:hidden;padding:56px 32px;">
+  <svg width="100%" height="100%" style="position:absolute;inset:0;z-index:0;-webkit-mask-image:radial-gradient(ellipse 75% 80% at 50% 50%, black 30%, transparent 90%);mask-image:radial-gradient(ellipse 75% 80% at 50% 50%, black 30%, transparent 90%);" aria-hidden="true">
+    <defs>
+      <pattern id="prcHowWeWorkDotGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+        <circle cx="1.2" cy="1.2" r="1" fill="var(--gray-2)" opacity="0.3"></circle>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#prcHowWeWorkDotGrid)"></rect>
+  </svg>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+    <h2 style="text-align:center;font-family:var(--font-heading);font-weight:800;letter-spacing:var(--tracking-tight);color:var(--black);font-size:clamp(1.6rem,2.6vw,2rem);margin:0 0 44px;">How Engagements Work</h2>
+
+    <div class="rg2" style="display:grid;grid-template-columns:1.5fr 1fr;gap:56px;align-items:start;">
+      <div>
+        <div style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:var(--tracking-mono);color:var(--page-blue);margin-bottom:6px;">PHASE ONE</div>
+        <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1.15rem;margin-bottom:28px;">Systems Architecture Assessment&nbsp;</div>
+
+        <div style="display:flex;flex-direction:column;">
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="position:relative;width:44px;height:44px;border-radius:var(--radius-md);background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="position:absolute;inset:0;border-radius:var(--radius-md);border:1.5px solid var(--page-blue);opacity:0;animation:prcAuditPulse 3s cubic-bezier(0.4,0,0.6,1) 0s infinite;"></span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="position:relative;z-index:1;"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>
+              </div>
+              <div style="position:relative;width:1px;flex:1;min-height:28px;background:var(--border-light);overflow:hidden;">
+                <span style="position:absolute;left:-1.5px;width:4px;height:4px;border-radius:50%;background:var(--page-blue);box-shadow:0 0 5px 1px var(--page-blue);animation:prcAuditFlow 3s ease-in-out 0s infinite;"></span>
+              </div>
+            </div>
+            <div style="padding-bottom:28px;">
+              <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1rem;margin-bottom:6px;">Business &amp; Architecture Map</div>
+              <div style="font:var(--text-body-sm);color:var(--gray-1);">We map and understand your current stack, data flows, and operational systems.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="position:relative;width:44px;height:44px;border-radius:var(--radius-md);background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="position:absolute;inset:0;border-radius:var(--radius-md);border:1.5px solid var(--page-blue);opacity:0;animation:prcAuditPulse 3s cubic-bezier(0.4,0,0.6,1) 0.6s infinite;"></span>
+                <svg width="20" height="20" viewBox="0 0 24 24" style="position:relative;z-index:1;display:block;">
+                  <circle cx="4" cy="4" r="2.2" fill="var(--page-blue)"></circle><circle cx="12" cy="4" r="2.2" fill="var(--page-blue)"></circle><circle cx="20" cy="4" r="2.2" fill="none" stroke="var(--page-blue)" stroke-width="1.6"></circle>
+                  <circle cx="4" cy="12" r="2.2" fill="var(--page-blue)"></circle><circle cx="12" cy="12" r="2.2" fill="none" stroke="var(--page-blue)" stroke-width="1.6"></circle><circle cx="20" cy="12" r="2.2" fill="none" stroke="var(--page-blue)" stroke-width="1.6"></circle>
+                  <circle cx="4" cy="20" r="2.2" fill="none" stroke="var(--page-blue)" stroke-width="1.6"></circle><circle cx="12" cy="20" r="2.2" fill="none" stroke="var(--page-blue)" stroke-width="1.6"></circle><circle cx="20" cy="20" r="2.2" fill="none" stroke="var(--page-blue)" stroke-width="1.6"></circle>
+                </svg>
+              </div>
+              <div style="position:relative;width:1px;flex:1;min-height:28px;background:var(--border-light);overflow:hidden;">
+                <span style="position:absolute;left:-1.5px;width:4px;height:4px;border-radius:50%;background:var(--page-blue);box-shadow:0 0 5px 1px var(--page-blue);animation:prcAuditFlow 3s ease-in-out 0.6s infinite;"></span>
+              </div>
+            </div>
+            <div style="padding-bottom:28px;">
+              <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1rem;margin-bottom:6px;">Opportunity Matrix</div>
+              <div style="font:var(--text-body-sm);color:var(--gray-1);">We identify and rank infrastructure gaps by revenue impact.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="position:relative;width:44px;height:44px;border-radius:var(--radius-md);background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="position:absolute;inset:0;border-radius:var(--radius-md);border:1.5px solid var(--page-blue);opacity:0;animation:prcAuditPulse 3s cubic-bezier(0.4,0,0.6,1) 1.2s infinite;"></span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="1.6" style="position:relative;z-index:1;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3.5 2"></path></svg>
+              </div>
+              <div style="position:relative;width:1px;flex:1;min-height:28px;background:var(--border-light);overflow:hidden;">
+                <span style="position:absolute;left:-1.5px;width:4px;height:4px;border-radius:50%;background:var(--page-blue);box-shadow:0 0 5px 1px var(--page-blue);animation:prcAuditFlow 3s ease-in-out 1.2s infinite;"></span>
+              </div>
+            </div>
+            <div style="padding-bottom:28px;">
+              <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1rem;margin-bottom:6px;">Business ROI Analysis&nbsp;</div>
+              <div style="font:var(--text-body-sm);color:var(--gray-1);">We quantify the business impact and return of solving them.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="position:relative;width:44px;height:44px;border-radius:var(--radius-md);background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="position:absolute;inset:0;border-radius:var(--radius-md);border:1.5px solid var(--page-blue);opacity:0;animation:prcAuditPulse 3s cubic-bezier(0.4,0,0.6,1) 1.8s infinite;"></span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="1.6" stroke-linejoin="round" style="position:relative;z-index:1;"><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"></path><path d="M14 3v5h5"></path></svg>
+              </div>
+              <div style="position:relative;width:1px;flex:1;min-height:28px;background:var(--border-light);overflow:hidden;">
+                <span style="position:absolute;left:-1.5px;width:4px;height:4px;border-radius:50%;background:var(--page-blue);box-shadow:0 0 5px 1px var(--page-blue);animation:prcAuditFlow 3s ease-in-out 1.8s infinite;"></span>
+              </div>
+            </div>
+            <div style="padding-bottom:28px;">
+              <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1rem;margin-bottom:6px;">Infrastructure &amp; Implementation Blueprint</div>
+              <div style="font:var(--text-body-sm);color:var(--gray-1);">You receive a prioritized roadmap, scope, and recommended build.</div>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;">
+            <div style="display:flex;flex-direction:column;align-items:center;">
+              <div style="position:relative;width:44px;height:44px;border-radius:var(--radius-md);background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="position:absolute;inset:0;border-radius:var(--radius-md);border:1.5px solid var(--page-blue);opacity:0;animation:prcAuditPulse 3s cubic-bezier(0.4,0,0.6,1) 2.4s infinite;"></span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="1.6" stroke-linejoin="round" style="position:relative;z-index:1;"><path d="M12 3l8 3.5v6c0 5-3.4 8-8 9.5-4.6-1.5-8-4.5-8-9.5v-6L12 3z"></path></svg>
+              </div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1rem;margin-bottom:6px;">Go / No-Go Decision</div>
+              <div style="font:var(--text-body-sm);color:var(--gray-1);">You decide with clarity. Build it, or walk away. No pressure.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(165deg, var(--page-blue-tint) 0%, var(--white) 55%);border:1px solid var(--page-blue-border);border-radius:var(--radius-lg);padding:32px;position:sticky;top:100px;overflow:hidden;box-shadow:0 20px 44px rgba(29,43,110,0.08);">
+        <div style="font-family:var(--font-mono);font-size:0.72rem;letter-spacing:var(--tracking-mono);color:var(--page-blue);margin-bottom:6px;">PHASE TWO</div>
+        <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1.3rem;margin-bottom:16px;">Implementation</div>
+        <div style="font:var(--text-body-sm);color:var(--gray-1);margin-bottom:28px;"><p data-start="2970" data-end="3164" rtrvr-ls="0~hs,5~hs,6~hs,8~hs,9~hs" class="PDq2pG_selectionAnchorContainer" rtrvr-ro="42">Once approved, we engineer, integrate, validate, and document your operational infrastructure before transferring complete ownership to your business, with optional ongoing partnership support if you choose.<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p data-start="3166" data-end="3261"></p></div>
+        <svg width="100%" height="110" viewBox="0 0 200 110" aria-hidden="true">
+          <line x1="14" y1="96" x2="186" y2="96" stroke="var(--border-light)" stroke-width="1.5"></line>
+          <rect x="20" y="56" width="36" height="40" rx="3" fill="none" stroke="var(--page-blue-border)" stroke-width="1.4" style="transform-origin:38px 96px;animation:prcImplRise 3.6s ease-in-out 0s infinite;"></rect>
+          <rect x="66" y="36" width="36" height="60" rx="3" fill="none" stroke="var(--page-blue)" stroke-width="1.6" style="transform-origin:84px 96px;animation:prcImplRise 3.6s ease-in-out 0.4s infinite;"></rect>
+          <rect x="112" y="16" width="36" height="80" rx="3" fill="none" stroke="var(--page-blue-border)" stroke-width="1.4" style="transform-origin:130px 96px;animation:prcImplRise 3.6s ease-in-out 0.8s infinite;"></rect>
+          <g fill="var(--page-blue)">
+            <circle cx="30" cy="66" r="2" style="animation:prcImplBlink 3.6s ease-in-out 0.2s infinite;"></circle>
+            <circle cx="46" cy="66" r="2" style="animation:prcImplBlink 3.6s ease-in-out 0.5s infinite;"></circle>
+            <circle cx="76" cy="46" r="2" style="animation:prcImplBlink 3.6s ease-in-out 0.9s infinite;"></circle>
+            <circle cx="92" cy="46" r="2" style="animation:prcImplBlink 3.6s ease-in-out 1.2s infinite;"></circle>
+            <circle cx="122" cy="26" r="2" style="animation:prcImplBlink 3.6s ease-in-out 1.6s infinite;"></circle>
+            <circle cx="138" cy="26" r="2" style="animation:prcImplBlink 3.6s ease-in-out 1.9s infinite;"></circle>
+          </g>
+          <path d="M156 40 l10 -14 l10 14" fill="none" stroke="var(--page-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation:prcImplArrow 3.6s ease-in-out infinite;"></path>
+        </svg>
+        <style>
+          @keyframes prcAuditPulse {
+            0% { transform:scale(0.92); opacity:0.7; }
+            60% { opacity:0; }
+            100% { transform:scale(1.18); opacity:0; }
+          }
+          @keyframes prcAuditFlow {
+            0% { top:-6px; opacity:0; }
+            10% { opacity:1; }
+            90% { opacity:1; }
+            100% { top:100%; opacity:0; }
+          }
+          @keyframes prcImplRise {
+            0%, 100% { transform:scaleY(0.82); opacity:0.7; }
+            50% { transform:scaleY(1); opacity:1; }
+          }
+          @keyframes prcImplBlink {
+            0%, 100% { opacity:0.25; }
+            50% { opacity:1; }
+          }
+          @keyframes prcImplArrow {
+            0%, 100% { transform:translateY(0); opacity:0.6; }
+            50% { transform:translateY(-6px); opacity:1; }
+          }
+        </style>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1200px;margin:0 auto;border-top:1px solid var(--border-light);"></div>
+
+<!-- INDICATIVE INVESTMENT GUIDE -->
+<section ref="{{reveal}}" style="padding:56px 32px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:44px;">
+      <h2 style="font-family:var(--font-heading);font-weight:800;letter-spacing:var(--tracking-tight);color:var(--black);font-size:clamp(1.6rem,2.6vw,2rem);margin:0 0 10px;">Implementation Investment Guide.</h2>
+      
+    </div>
+
+    <div class="rg3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+      <sc-for list="{{investments}}" as="inv" hint-placeholder-count="3">
+        <div style="background:linear-gradient(165deg, var(--page-blue-tint) 0%, var(--white) 40%);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;">
+          <div style="width:42px;height:42px;border-radius:var(--radius-sm);background:{{inv.iconBg}};display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{inv.iconColor}}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{inv.iconPath}}"></path></svg>
+          </div>
+          <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1.05rem;margin-bottom:8px;">{{inv.name}}</div>
+          <div style="font:var(--text-body-sm);color:var(--gray-1);margin-bottom:20px;">{{inv.desc}}</div>
+
+          <div style="border-top:1px solid var(--border-light);padding-top:16px;margin-bottom:12px;">
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: var(--tracking-mono); color: var(--black); margin-bottom: 4px"><b>IMPLEMENTATION INVESTMENT</b></div>
+            <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1.2rem;">{{inv.setup}}</div>
+          </div>
+          <div style="margin-bottom:18px;">
+            <div style="font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: var(--tracking-mono); color: var(--black); margin-bottom: 4px"><b>MANAGED ARCHITECTURE (OPTIONAL)</b></div>
+            <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:1.2rem;">{{inv.retainer}}<span style="font-family:var(--font-body);font-weight:400;font-size:0.85rem;color:var(--gray-2);"> /mo</span></div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:auto;padding-top:16px;border-top:1px solid var(--border-light);">
+            <sc-for list="{{inv.includesList}}" as="inc" hint-placeholder-count="4">
+              <div style="display:flex;align-items:flex-start;gap:8px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="{{inc.iconPath}}"></path></svg>
+                <span style="font:var(--text-body-sm);color:var(--gray-1);">{{inc.label}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <p style="text-align:center;font-style:italic;font:var(--text-body-sm);color:var(--gray-2);margin:32px 0 0;"><i rtrvr-ls="0~hs,5~hs,6~hs,8~hs,9~hs" rtrvr-ro="42">Every engagement is custom. The Architecture Audit defines exact scope and investment.</i></p>
+  </div>
+</section>
+
+<!-- MANAGED ARCHITECTURE -->
+<section ref="{{reveal}}" style="padding:56px 32px;">
+  <div style="max-width:1200px;margin:0 auto;background:var(--off-white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:40px;">
+    <div class="rg2" style="display:grid;grid-template-columns:0.8fr 2fr;gap:40px;align-items:center;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="width:52px;height:52px;border-radius:var(--radius-md);background:var(--page-blue-tint);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="1.7"><path d="M7 15a4 4 0 010-8c2.5 0 3.5 2 5 4 1.5 2 2.5 4 5 4a4 4 0 000-8c-2.5 0-3.5 2-5 4-1.5 2-2.5 4-5 4z"></path></svg>
+        </div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:800;letter-spacing:var(--tracking-tight);color:var(--black);font-size:1.35rem;line-height:1.2;">Managed Architecture</div>
+          <div style="font-family:var(--font-body);font-weight:600;color:var(--page-blue);font-size:0.9rem;margin-top:4px;">Optional. Never required.</div>
+        </div>
+      </div>
+      <div style="font:var(--text-body-sm);color:var(--gray-1);">Every system we build is fully documented and transferred to your team. Some clients choose to have us continue optimizing their infrastructure as the business grows. Others manage everything internally. Both are equally valid.</div>
+    </div>
+
+    <div class="rg4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:36px;padding-top:32px;border-top:1px solid var(--border-light);">
+      <sc-for list="{{managedItems}}" as="m" hint-placeholder-count="4">
+        <div>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:12px;"><path d="{{m.iconPath}}"></path></svg>
+          <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:0.95rem;margin-bottom:6px;">{{m.title}}</div>
+          <div style="font:var(--text-body-sm);font-size:0.82rem;color:var(--gray-1);">{{m.body}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1200px;margin:0 auto;border-top:1px solid var(--border-light);"></div>
+
+<!-- WHAT YOU OWN -->
+<section ref="{{reveal}}" style="padding:56px 32px;">
+  <div class="rg2" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:0.7fr 2.3fr;gap:40px;align-items:start;">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:800;letter-spacing:var(--tracking-tight);color:var(--black);font-size:1.5rem;line-height:1.2;margin-bottom:6px;">What you own.</div>
+      <div style="font-family:var(--font-body);font-weight:600;color:var(--page-blue);font-size:0.95rem;">Everything. Always.</div>
+    </div>
+    <div class="rg6" style="display:grid;grid-template-columns:repeat(6,1fr);gap:20px;">
+      <sc-for list="{{ownItems}}" as="o" hint-placeholder-count="6">
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="display:block;margin-bottom:12px;"><path d="{{o.iconPath}}"></path></svg>
+          <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:0.88rem;margin-bottom:6px;">{{o.title}}</div>
+          <div style="font:var(--text-body-sm);font-size:0.78rem;color:var(--gray-1);">{{o.body}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:1200px;margin:0 auto;border-top:1px solid var(--border-light);"></div>
+
+<!-- OUR COMMITMENTS -->
+<section ref="{{reveal}}" style="position:relative;overflow:hidden;padding:56px 32px;">
+  <svg width="100%" height="100%" style="position:absolute;inset:0;z-index:0;-webkit-mask-image:radial-gradient(ellipse 75% 80% at 50% 50%, black 30%, transparent 90%);mask-image:radial-gradient(ellipse 75% 80% at 50% 50%, black 30%, transparent 90%);" aria-hidden="true">
+    <defs>
+      <pattern id="prcCommitDotGrid" width="34" height="34" patternUnits="userSpaceOnUse">
+        <circle cx="1.4" cy="1.4" r="1" fill="var(--gray-2)" opacity="0.22"></circle>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#prcCommitDotGrid)"></rect>
+  </svg>
+  <div style="max-width:1200px;margin:0 auto;position:relative;z-index:1;">
+    <div style="font-family:var(--font-heading);font-weight:800;letter-spacing:var(--tracking-tight);color:var(--black);font-size:1.5rem;line-height:1.2;margin-bottom:6px;">Our commitments.</div>
+    <div style="font-family:var(--font-body);font-weight:600;color:var(--page-blue);font-size:0.95rem;margin-bottom:32px;">We build trust with clarity, accountability and ownership. not contracts.</div>
+
+    <div class="rg4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+      <sc-for list="{{guarantees}}" as="g" hint-placeholder-count="4">
+        <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:24px;">
+          <div style="width:38px;height:38px;border-radius:var(--radius-sm);background:{{g.iconBg}};display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{g.iconColor}}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="{{g.iconPath}}"></path></svg>
+          </div>
+          <div style="font-family:var(--font-heading);font-weight:700;color:var(--black);font-size:0.95rem;margin-bottom:8px;">{{g.title}}</div>
+          <div style="font:var(--text-body-sm);font-size:0.82rem;color:var(--gray-1);">{{g.body}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ + CLOSING CTA -->
+<section ref="{{reveal}}" style="position:relative;overflow:hidden;padding:56px 32px 88px;">
+  <svg width="100%" height="100%" style="position:absolute;inset:0;z-index:0;-webkit-mask-image:radial-gradient(ellipse 75% 80% at 50% 50%, black 30%, transparent 90%);mask-image:radial-gradient(ellipse 75% 80% at 50% 50%, black 30%, transparent 90%);" aria-hidden="true">
+    <defs>
+      <pattern id="prcFaqDotGrid" width="34" height="34" patternUnits="userSpaceOnUse">
+        <circle cx="1.4" cy="1.4" r="1" fill="var(--gray-2)" opacity="0.22"></circle>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#prcFaqDotGrid)"></rect>
+  </svg>
+  <div class="rg2" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;position:relative;z-index:1;">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:800;letter-spacing:var(--tracking-tight);color:var(--black);font-size:1.5rem;line-height:1.2;margin-bottom:24px;">Common questions.</div>
+      <div>
+        <sc-for list="{{faqs}}" as="f" hint-placeholder-count="4">
+          <div style="border-top:1px solid var(--border-light);">
+            <button onClick="{{f.toggle}}" style="width:100%;background:none;border:none;text-align:left;padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;">
+              <span style="font-family:var(--font-body);font-weight:600;color:var(--black);font-size:0.92rem;">{{f.q}}</span>
+              <span style="font-family:var(--font-mono);font-size:1.1rem;color:var(--gray-2);flex-shrink:0;">{{f.symbol}}</span>
+            </button>
+            <sc-if value="{{f.open}}" hint-placeholder-val="{{false}}">
+              <div style="padding: 0 0 20px; font: var(--text-body-sm); color: var(--gray-1); max-width: 520px; text-decoration-line: none">{{f.a}}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="border-top:1px solid var(--border-light);padding-top:20px;margin-top:4px;font:var(--text-body-sm);color:var(--gray-1);">Still have questions? <a href="#" onClick="{{openChatBubble}}" style="color:var(--black);font-weight:600;text-decoration:none;border-bottom:1px solid var(--black);">Open The Chat Bubble</a></div>
+    </div>
+
+    <div style="position:relative;overflow:hidden;border-radius:var(--radius-lg);padding:40px;background:linear-gradient(115deg,#EEF1FE 0%,#F7F5FB 45%,#FBEFE6 100%);">
+      <svg viewBox="0 0 500 380" preserveAspectRatio="xMidYMax slice" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.5;" aria-hidden="true">
+        <g fill="var(--page-blue-border)">
+          <circle cx="30" cy="300" r="2.5"></circle><circle cx="70" cy="330" r="2"></circle><circle cx="50" cy="360" r="2"></circle>
+          <circle cx="90" cy="290" r="2"></circle><circle cx="20" cy="340" r="2.5"></circle>
+        </g>
+      </svg>
+      <div style="position:relative;z-index:1;">
+        
+        <div style="font-family:var(--font-heading);font-weight:800;letter-spacing:var(--tracking-tight);color:var(--black);line-height:1.15;font-size:clamp(1.4rem,2.4vw,1.8rem);margin-bottom:14px;">Designed for today. Engineered for what’s next.</div>
+        <p style="font:var(--text-body-sm);color:var(--gray-1);margin:0 0 24px;">Implementation is easy to sell. Clarity is harder to find. Build only when the decision is clear.&nbsp;</p>
+
+        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px;">
+          <a href="https://tally.so/r/2EyKqD?utm_source=site&amp;utm_medium=cta&amp;utm_campaign=price_closing" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:600;font-size:0.9rem;background:var(--black);color:var(--white);padding:12px 20px;border-radius:var(--radius-pill);text-decoration:none;transition:box-shadow .2s ease,opacity .2s ease;" style-hover="opacity:0.85;box-shadow:0 0 18px rgba(93,111,239,0.35);">Your Architecture Assessment Report <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+          <a href="Process.dc.html" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-body);font-weight:600;font-size:0.88rem;color:var(--black);text-decoration:none;">Explore Our Process <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+        </div>
+
+        <div class="inv-close-checks" style="display:flex;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(10,10,10,0.08);padding-top:18px;">
+          <sc-for list="{{ctaChecks}}" as="c" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--page-blue)" stroke-width="2" style="flex-shrink:0;"><circle cx="12" cy="12" r="10"></circle><path d="M8 12.5l2.5 2.5L16 9.5"></path></svg>
+              <span style="font:var(--text-body-sm);font-size:0.78rem;color:var(--gray-1);">{{c}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" active-page="price" hint-size="100%,320px"></dc-import>
+<dc-import name="ChatWidget" hint-size="0,0"></dc-import>
+<dc-import name="BackToTop" hint-size="0,0"></dc-import>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+class Component extends DCLogic {
+  state = { openFaq: 0 };
+
+  openChatBubble = (e) => {
+    if (e) e.preventDefault();
+    const btn = document.querySelector('button[aria-label="Open chat"]');
+    if (btn) btn.click();
+  };
+
+  reveal = (el) => {
+    if (!el) return;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)';
+    if (!this._io) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+            this._io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+    }
+    this._io.observe(el);
+  };
+
+  toggleFaqFor(i) {
+    if (!this._toggles) this._toggles = {};
+    if (!this._toggles[i]) {
+      this._toggles[i] = () => this.setState((s) => ({ openFaq: s.openFaq === i ? null : i }));
+    }
+    return this._toggles[i];
+  }
+
+  renderVals() {
+    const faqData = [
+      { q: 'Why isn’t the Assessment free?', a: 'Because it isn\'t a sales call or a fee for proposals. \n\nIt\'s a structured assessment that evaluates how your business operates today, identifies the operational constraints creating the greatest impact, and determines whether infrastructure is the right investment. If you proceed with implementation, the assessment fee is credited in full.' },
+      { q: 'Can I do the Audit and not proceed with a build?', a: 'Yes. You keep all three deliverables \u2014 the Ops Canvas, Opportunity Matrix, and ROI Calculator. Some clients use them to brief internal teams or evaluate alternatives.' },
+      { q: 'What if the ROI Calculator doesn\u2019t make a compelling case?', a: 'Then we tell you. If the numbers don\u2019t justify the build for your business right now, we say so. We\u2019d rather lose a build than have a client proceed into something that won\u2019t return.' },
+      { q: 'Do you work with brands outside D2C / eCommerce?', a: 'No. D2C is the only vertical we work in. It\u2019s where our domain depth lives, and it\u2019s what makes the Opportunity Matrix and ROI Calculator accurate.' },
+    ];
+    const faqs = faqData.map((f, i) => ({
+      ...f,
+      open: this.state.openFaq === i,
+      symbol: this.state.openFaq === i ? '\u2212' : '+',
+      toggle: this.toggleFaqFor(i),
+    }));
+
+    return {
+      reveal: this.reveal,
+      openChatBubble: this.openChatBubble,
+      faqs,
+      investments: [
+        {
+          name: 'Creative Intelligence Loop',
+          desc: 'Best for brands experiencing creative fatigue and declining ad performance.',
+          setup: '$6k \u2013 $15k', retainer: '$1.5k \u2013 $2.5k',
+          includesList: [
+            { label: 'Improve creative performance through continuous learning', iconPath: 'M3 17l6-6 4 4 8-8M15 7h6v6' },
+            { label: 'Detect creative fatigue before performance declines', iconPath: 'M12 9v4M12 17h.01M10.3 3.9L2.5 18a1 1 0 00.9 1.5h17.2a1 1 0 00.9-1.5L13.7 3.9a1 1 0 00-1.7 0z' },
+            { label: 'Generate and validate new creative directions', iconPath: 'M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3z' },
+            { label: 'Build a repeatable creative intelligence system', iconPath: 'M4 19h16M7 15v-4M12 15V7M17 15v-8' },
+          ],
+          iconBg: 'var(--page-blue-tint)', iconColor: 'var(--page-blue)',
+          iconPath: 'M3 17l6-6 4 4 8-8M15 7h6v6',
+        },
+        {
+          name: 'CDP Middleware',
+          desc: 'Best for brands with fragmented customer data across multiple platforms.',
+          setup: '$9k \u2013 $23k', retainer: '$3k \u2013 $8k',
+          includesList: [
+            { label: 'Create a unified customer profile', iconPath: 'M12 12a4 4 0 100-8 4 4 0 000 8zM20 6L9 17l-5-5' },
+            { label: 'Synchronize audiences across platforms', iconPath: 'M17 2l4 4-4 4M3 11V9a4 4 0 014-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 01-4 4H3' },
+            { label: 'Improve data quality and reliability', iconPath: 'M12 3l8 3.5v6c0 5-3.4 8-8 9.5-4.6-1.5-8-4.5-8-9.5v-6L12 3z' },
+            { label: 'Enable better segmentation and decision-making', iconPath: 'M12 8v5l3 2M12 3a9 9 0 100 18 9 9 0 000-18z' },
+          ],
+          iconBg: 'var(--page-blue-tint)', iconColor: 'var(--page-blue)',
+          iconPath: 'M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5',
+        },
+        {
+          name: 'Deep Sync Voice Agent',
+          desc: 'For SMB & Enterprise. \nHuman-like conversational skills with deep stack sync and auto progress updates.',
+          setup: '$5k \u2013 $14k', retainer: '$1.5k \u2013 $4k',
+          includesList: [
+            { label: 'Automate repetitive customer interactions', iconPath: 'M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3zM19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8' },
+            { label: 'Assist support and operational teams', iconPath: 'M9 8a3 3 0 106 0 3 3 0 00-6 0zM2.5 19.5c0-3.3 2.9-5 6.5-5s6.5 1.7 6.5 5M17 9a2.3 2.3 0 100-4.6M15.3 13c2.6 0.1 5 1.5 5.5 3.9' },
+            { label: 'Fully awareness and data sync. Fast resolutions. ', iconPath: 'M4 7a2 2 0 012-2h12a2 2 0 012 2v3a2 2 0 000 4v3a2 2 0 01-2 2H6a2 2 0 01-2-2v-3a2 2 0 000-4V7z' },
+            { label: 'Escalate seamlessly when human intervention is needed', iconPath: 'M11 4a7 7 0 100 14 7 7 0 000-14zM21 21l-4.3-4.3' },
+          ],
+          iconBg: 'var(--page-blue-tint)', iconColor: 'var(--page-blue)',
+          iconPath: 'M12 3.5a8.5 8.5 0 100 17c1.2 0 2.4-.28 3.4-.78L21 21l-1-4.6A8.4 8.4 0 0021 12a8.5 8.5 0 00-9-8.5z',
+        },
+      ],
+      managedItems: [
+        { title: 'Own Everything', body: 'Full ownership of the system, data, and logic.', iconPath: 'M12 3l8 3.5v6c0 5-3.4 8-8 9.5-4.6-1.5-8-4.5-8-9.5v-6L12 3z' },
+        { title: 'Adapt & Evolve', body: 'We adapt the system as your business and stack evolve.', iconPath: 'M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M6.3 17.7l2-2M15.7 8.3l2-2M12 8a4 4 0 100 8 4 4 0 000-8z' },
+        { title: 'Proactive Monitoring', body: 'We monitor performance, thresholds, and data integrity.', iconPath: 'M12 8v5l3 2M12 3a9 9 0 100 18 9 9 0 000-18z' },
+        { title: 'Strategic Partner', body: 'We act as your infrastructure partner, not just a vendor.', iconPath: 'M12 12a4 4 0 100-8 4 4 0 000 8zM4 20c0-4 4-6 8-6s8 2 8 6' },
+      ],
+      ownItems: [
+        { title: 'Source Code', body: '100% ownership of all code and workflows.', iconPath: 'M8 6l-6 6 6 6M16 6l6 6-6 6' },
+        { title: 'Documentation', body: 'Complete technical documentation and how-to guides.', iconPath: 'M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1zM14 3v5h5' },
+        { title: 'Architecture', body: 'Full architecture diagrams and system specifications.', iconPath: 'M12 2l8 4.5v9L12 20l-8-4.5v-9L12 2z' },
+        { title: 'Automations', body: 'All automations and operational workflows.', iconPath: 'M12 4v3M12 17v3M4 12h3M17 12h3M6.3 6.3l2 2M15.7 15.7l2 2M6.3 17.7l2-2M15.7 8.3l2-2M12 8a4 4 0 100 8 4 4 0 000-8z' },
+        { title: 'Training', body: 'Knowledge transfer and team training included.', iconPath: 'M12 4L2 9l10 5 8-4v6M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5' },
+        { title: 'Integration Specs', body: 'Detailed integration maps and API documentation.', iconPath: 'M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8' },
+      ],
+      guarantees: [
+        { title: 'Architecture Commitment', body: 'If the Architecture Assessment doesn\'t identify meaningful operational opportunities with a clear business case, we\'ll refund the $750 fee in full.', iconBg: 'var(--page-blue-tint)', iconColor: 'var(--page-blue)', iconPath: 'M12 3l8 3.5v6c0 5-3.4 8-8 9.5-4.6-1.5-8-4.5-8-9.5v-6L12 3z' },
+        { title: 'Ownership Commitment ', body: 'Each infrastructure, workflows, documentation, prompts, integrations, and supporting assets remain entirely under your ownership from day one.\n\n', iconBg: 'var(--page-blue-tint)', iconColor: 'var(--page-blue)', iconPath: 'M20 6L9 17l-5-5' },
+        { title: 'Delivery Commitment ', body: '50% at project approval.\n\n50% after the agreed infrastructure has been implemented and validated in your operating environment.', iconBg: '#EAF7EC', iconColor: 'var(--page-green)', iconPath: 'M7 3v3M17 3v3M4 9h16M5 6h14a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1z' },
+        { title: 'Timeline Commitment ', body: 'If we miss an agreed milestone due to our own delays when building your project, you will automatically receive a one-week credit toward your managed architecture plan.', iconBg: '#FCEFE3', iconColor: 'var(--page-orange)', iconPath: 'M5 11h14v9H5v-9zM8 11V7a4 4 0 018 0v4' },
+      ],
+      ctaChecks: ['Architecture First', 'Full Documentation', 'Full Ownership', 'Optional Managed Architecture'],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

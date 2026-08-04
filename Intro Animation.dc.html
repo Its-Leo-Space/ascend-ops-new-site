@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/styles.css">
+  <style>
+    html, body { margin:0; padding:0; background:#FFFFFF; }
+    a { color:#4F46E5; }
+    a:hover { color:#111111; }
+    @keyframes inFade { from{opacity:0;} to{opacity:1;} }
+    @keyframes inRise { from{opacity:0;transform:translateY(14px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes inGridOn { 0%{opacity:0;-webkit-mask-size:0% 0%;mask-size:0% 0%;} 100%{opacity:1;-webkit-mask-size:260% 260%;mask-size:260% 260%;} }
+    @keyframes inGridDrift { from{background-position:0 0,0 0,0 0,0 0;} to{background-position:0 64px,64px 0,0 320px,320px 0;} }
+    @keyframes inDraw { from{stroke-dashoffset:1;} to{stroke-dashoffset:0;} }
+    @keyframes inDashFlow { to{stroke-dashoffset:-160;} }
+    @keyframes inSpin { to{transform:rotate(360deg);} }
+    @keyframes inSpinRev { to{transform:rotate(-360deg);} }
+    @keyframes inPulse { 0%{transform:scale(0.82);opacity:0.55;} 70%{opacity:0;} 100%{transform:scale(1.55);opacity:0;} }
+    @keyframes inWipe { from{clip-path:inset(100% 0 0 0);transform:scale(0.92);} to{clip-path:inset(0 0 0 0);transform:scale(1);} }
+    @keyframes inFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);} }
+    @keyframes inScan { 0%{transform:translateY(-60%);opacity:0;} 12%{opacity:1;} 88%{opacity:1;} 100%{transform:translateY(60%);opacity:0;} }
+    @keyframes inBlink { 0%,45%{opacity:1;} 50%,95%{opacity:0.15;} 100%{opacity:1;} }
+    @keyframes inStatus { 0%{opacity:0;transform:translateY(4px);} 6%{opacity:1;transform:translateY(0);} 28%{opacity:1;transform:translateY(0);} 34%{opacity:0;transform:translateY(-4px);} 100%{opacity:0;transform:translateY(-4px);} }
+    @keyframes inParticle { 0%{transform:translate3d(0,0,0);opacity:0;} 12%{opacity:0.9;} 88%{opacity:0.9;} 100%{transform:translate3d(0,-90px,0);opacity:0;} }
+    @keyframes inBracket { from{opacity:0;transform:scale(1.25);} to{opacity:1;transform:scale(1);} }
+    @media (max-width: 760px) {
+      .intro-title { font-size:1.6rem !important; }
+      .intro-stage { width:min(220px,42vh) !important; height:min(220px,42vh) !important; }
+    }
+  </style>
+</helmet>
+
+<div style="position:relative;min-height:100vh;width:100%;background:#FFFFFF;overflow-x:hidden;overflow-y:auto;display:flex;align-items:center;justify-content:center;">
+
+  <sc-if value="{{playing}}" hint-placeholder-val="{{true}}">
+  <div style="display:contents;">
+  <!-- drifting blueprint grid -->
+  <div aria-hidden="true" style="position:absolute;inset:-80px;background-image:linear-gradient(#EDEDF2 1px,transparent 1px),linear-gradient(90deg,#EDEDF2 1px,transparent 1px),linear-gradient(#E2E2EA 1px,transparent 1px),linear-gradient(90deg,#E2E2EA 1px,transparent 1px);background-size:64px 64px,64px 64px,320px 320px,320px 320px;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 45%,transparent 74%);mask-image:radial-gradient(circle at 50% 50%,#000 45%,transparent 74%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:50% 50%;mask-position:50% 50%;animation:inGridOn 1.4s 0.15s cubic-bezier(0.33,1,0.68,1) both,inGridDrift 9s 1.4s linear infinite;"></div>
+
+  <!-- ambient indigo bloom -->
+  <div aria-hidden="true" style="position:absolute;left:50%;top:50%;width:min(1100px,120vw);height:min(1100px,120vw);transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(79,70,229,0.10) 0%,rgba(79,70,229,0.04) 38%,transparent 68%);opacity:0;animation:inFade 1.6s 0.5s ease-out both;"></div>
+
+  <!-- converging data network -->
+  <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.9;" aria-hidden="true">
+    <g fill="none" stroke="#4F46E5" stroke-width="1.2" stroke-linecap="round" opacity="0.35">
+      <path d="M120 140 H480 V370 H612" pathLength="1" stroke-dasharray="1" style="animation:inDraw 1.1s 0.7s cubic-bezier(0.65,0,0.35,1) both;"></path>
+      <path d="M60 450 H612" pathLength="1" stroke-dasharray="1" style="animation:inDraw 1.1s 0.8s cubic-bezier(0.65,0,0.35,1) both;"></path>
+      <path d="M150 780 H480 V530 H612" pathLength="1" stroke-dasharray="1" style="animation:inDraw 1.1s 0.9s cubic-bezier(0.65,0,0.35,1) both;"></path>
+      <path d="M1320 140 H960 V370 H828" pathLength="1" stroke-dasharray="1" style="animation:inDraw 1.1s 0.75s cubic-bezier(0.65,0,0.35,1) both;"></path>
+      <path d="M1380 450 H828" pathLength="1" stroke-dasharray="1" style="animation:inDraw 1.1s 0.85s cubic-bezier(0.65,0,0.35,1) both;"></path>
+      <path d="M1290 780 H960 V530 H828" pathLength="1" stroke-dasharray="1" style="animation:inDraw 1.1s 0.95s cubic-bezier(0.65,0,0.35,1) both;"></path>
+    </g>
+    <g fill="none" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="3 22" opacity="0.7">
+      <path d="M120 140 H480 V370 H612" style="animation:inDashFlow 3.2s 1.6s linear infinite;"></path>
+      <path d="M60 450 H612" style="animation:inDashFlow 2.6s 1.7s linear infinite;"></path>
+      <path d="M150 780 H480 V530 H612" style="animation:inDashFlow 3.6s 1.8s linear infinite;"></path>
+      <path d="M1320 140 H960 V370 H828" style="animation:inDashFlow 3s 1.65s linear infinite;"></path>
+      <path d="M1380 450 H828" style="animation:inDashFlow 2.4s 1.75s linear infinite;"></path>
+      <path d="M1290 780 H960 V530 H828" style="animation:inDashFlow 3.4s 1.85s linear infinite;"></path>
+    </g>
+    <g>
+      <g style="animation:inFade 0.5s 0.6s both;"><circle cx="120" cy="140" r="5.5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="1.5"></circle><circle cx="120" cy="140" r="2" fill="#4F46E5" style="animation:inBlink 2.4s 2s ease-in-out infinite;"></circle></g>
+      <g style="animation:inFade 0.5s 0.68s both;"><circle cx="60" cy="450" r="5.5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="1.5"></circle><circle cx="60" cy="450" r="2" fill="#4F46E5" style="animation:inBlink 2.8s 2.3s ease-in-out infinite;"></circle></g>
+      <g style="animation:inFade 0.5s 0.76s both;"><circle cx="150" cy="780" r="5.5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="1.5"></circle><circle cx="150" cy="780" r="2" fill="#4F46E5" style="animation:inBlink 3.1s 2.6s ease-in-out infinite;"></circle></g>
+      <g style="animation:inFade 0.5s 0.64s both;"><circle cx="1320" cy="140" r="5.5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="1.5"></circle><circle cx="1320" cy="140" r="2" fill="#4F46E5" style="animation:inBlink 2.6s 2.1s ease-in-out infinite;"></circle></g>
+      <g style="animation:inFade 0.5s 0.72s both;"><circle cx="1380" cy="450" r="5.5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="1.5"></circle><circle cx="1380" cy="450" r="2" fill="#4F46E5" style="animation:inBlink 2.2s 2.4s ease-in-out infinite;"></circle></g>
+      <g style="animation:inFade 0.5s 0.8s both;"><circle cx="1290" cy="780" r="5.5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="1.5"></circle><circle cx="1290" cy="780" r="2" fill="#4F46E5" style="animation:inBlink 2.9s 2.7s ease-in-out infinite;"></circle></g>
+    </g>
+  </svg>
+
+  <!-- rising particles -->
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;">
+    <div style="position:absolute;left:18%;top:62%;width:3px;height:3px;border-radius:50%;background:#4F46E5;opacity:0;animation:inParticle 6.5s 1.8s linear infinite;"></div>
+    <div style="position:absolute;left:26%;top:74%;width:2px;height:2px;border-radius:50%;background:#8A8698;opacity:0;animation:inParticle 8s 2.6s linear infinite;"></div>
+    <div style="position:absolute;left:34%;top:56%;width:4px;height:4px;border-radius:50%;background:#4F46E5;opacity:0;animation:inParticle 7.2s 3.4s linear infinite;"></div>
+    <div style="position:absolute;left:44%;top:80%;width:2px;height:2px;border-radius:50%;background:#4F46E5;opacity:0;animation:inParticle 9s 1.2s linear infinite;"></div>
+    <div style="position:absolute;left:56%;top:70%;width:3px;height:3px;border-radius:50%;background:#8A8698;opacity:0;animation:inParticle 6.8s 4.1s linear infinite;"></div>
+    <div style="position:absolute;left:64%;top:58%;width:2px;height:2px;border-radius:50%;background:#4F46E5;opacity:0;animation:inParticle 7.8s 2.2s linear infinite;"></div>
+    <div style="position:absolute;left:73%;top:76%;width:4px;height:4px;border-radius:50%;background:#4F46E5;opacity:0;animation:inParticle 8.6s 3.8s linear infinite;"></div>
+    <div style="position:absolute;left:82%;top:64%;width:2px;height:2px;border-radius:50%;background:#8A8698;opacity:0;animation:inParticle 7.4s 5s linear infinite;"></div>
+    <div style="position:absolute;left:12%;top:40%;width:2px;height:2px;border-radius:50%;background:#4F46E5;opacity:0;animation:inParticle 9.4s 4.6s linear infinite;"></div>
+    <div style="position:absolute;left:88%;top:44%;width:3px;height:3px;border-radius:50%;background:#4F46E5;opacity:0;animation:inParticle 8.2s 2.9s linear infinite;"></div>
+  </div>
+
+  <!-- CENTRE COLUMN -->
+  <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(18px,3.2vh,34px);padding:clamp(24px,4vh,48px) 24px;width:min(920px,90vw);text-align:center;">
+
+    <div style="display:flex;align-items:center;gap:10px;font-family:'Inter',system-ui,sans-serif;font-size:0.68rem;letter-spacing:0.24em;text-transform:uppercase;color:#8A8698;opacity:0;animation:inRise 0.7s 0.35s cubic-bezier(0.33,1,0.68,1) both;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#4F46E5;display:block;animation:inBlink 1.8s 1.2s ease-in-out infinite;"></span>
+      <span style="white-space:nowrap;">ASCEND</span>
+    </div>
+
+    <!-- logo stage -->
+    <div class="intro-stage" style="position:relative;flex:none;width:clamp(180px,34vh,280px);height:clamp(180px,34vh,280px);display:flex;align-items:center;justify-content:center;">
+      <div aria-hidden="true" style="position:absolute;inset:0;border-radius:50%;border:1px dashed #D7D7E0;opacity:0;animation:inSpin 26s linear infinite,inFade 0.8s 0.9s ease-out both;"></div>
+      <div aria-hidden="true" style="position:absolute;inset:30px;border-radius:50%;border:1px solid #EDEDF2;animation:inSpinRev 18s linear infinite,inFade 0.8s 1.05s ease-out both;"></div>
+      <div aria-hidden="true" style="position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(79,70,229,0.35);opacity:0;animation:inPulse 3.4s 2.4s cubic-bezier(0.33,1,0.68,1) infinite;"></div>
+      <div aria-hidden="true" style="position:absolute;inset:-6px;border-radius:50%;border:1px solid rgba(79,70,229,0.25);opacity:0;animation:inPulse 3.4s 4.1s cubic-bezier(0.33,1,0.68,1) infinite;"></div>
+
+      <svg viewBox="0 0 280 280" width="280" height="280" fill="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;" aria-hidden="true">
+        <polygon points="140,26 239,83 239,197 140,254 41,197 41,83" stroke="#4F46E5" stroke-width="1.3" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" style="animation:inDraw 1.2s 0.55s cubic-bezier(0.65,0,0.35,1) both;"></polygon>
+        <circle cx="140" cy="26" r="3" fill="#4F46E5" style="animation:inFade 0.4s 1.5s both;"></circle>
+        <circle cx="239" cy="197" r="3" fill="#4F46E5" style="animation:inFade 0.4s 1.6s both;"></circle>
+        <circle cx="41" cy="83" r="3" fill="#4F46E5" style="animation:inFade 0.4s 1.7s both;"></circle>
+      </svg>
+
+      <!-- corner brackets -->
+      <div aria-hidden="true" style="position:absolute;left:-14px;top:-14px;width:20px;height:20px;border-left:1.5px solid #111111;border-top:1.5px solid #111111;opacity:0;animation:inBracket 0.5s 1.9s cubic-bezier(0.33,1,0.68,1) both;"></div>
+      <div aria-hidden="true" style="position:absolute;right:-14px;top:-14px;width:20px;height:20px;border-right:1.5px solid #111111;border-top:1.5px solid #111111;opacity:0;animation:inBracket 0.5s 2s cubic-bezier(0.33,1,0.68,1) both;"></div>
+      <div aria-hidden="true" style="position:absolute;left:-14px;bottom:-14px;width:20px;height:20px;border-left:1.5px solid #111111;border-bottom:1.5px solid #111111;opacity:0;animation:inBracket 0.5s 2.1s cubic-bezier(0.33,1,0.68,1) both;"></div>
+      <div aria-hidden="true" style="position:absolute;right:-14px;bottom:-14px;width:20px;height:20px;border-right:1.5px solid #111111;border-bottom:1.5px solid #111111;opacity:0;animation:inBracket 0.5s 2.2s cubic-bezier(0.33,1,0.68,1) both;"></div>
+
+      <div style="position:relative;width:54%;height:54%;animation:inFloat 6s 2.6s ease-in-out infinite;">
+        <img src="assets/intro-logo-mark.png" alt="Ascend Ops" style="width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply;clip-path:inset(100% 0 0 0);animation:inWipe 0.95s 1.35s cubic-bezier(0.33,1,0.68,1) both;" loading="eager" decoding="async">
+        <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,#4F46E5,transparent);opacity:0;animation:inScan 2.8s 2.4s cubic-bezier(0.45,0,0.55,1) infinite;"></div>
+      </div>
+    </div>
+
+    <h1 class="intro-title" style="font-family:'Inter',sans-serif;font-weight:800;letter-spacing:-0.035em;line-height:1.1;font-size:clamp(1.7rem,3.6vw,2.9rem);color:#111111;margin:0;max-width:22ch;text-wrap:balance;opacity:0;animation:inRise 0.8s 2.35s cubic-bezier(0.33,1,0.68,1) both;">Operational Infrastructure.<br>Engineered for ownership.</h1>
+
+    <a href="Home.dc.html" onClick="{{enter}}" style="display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.95rem;background:#111111;color:#FFFFFF;padding:15px 28px;border-radius:999px;text-decoration:none;white-space:nowrap;opacity:0;animation:inRise 0.65s 2.85s cubic-bezier(0.33,1,0.68,1) both;transition:transform .3s cubic-bezier(0.34,1.56,0.64,1),box-shadow .3s ease;" style-hover="transform:translateY(-2px);box-shadow:0 12px 30px rgba(17,17,17,0.24);">Enter <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg></a>
+
+    <p style="font-family:'Inter',sans-serif;font-weight:500;font-size:0.85rem;letter-spacing:0.02em;color:#8A8698;margin:0;opacity:0;animation:inRise 0.6s 3s cubic-bezier(0.33,1,0.68,1) both;">For D2C growth-stage businesses.</p>
+
+    <!-- boot status readout -->
+    <div style="position:relative;height:16px;width:100%;max-width:420px;opacity:0;animation:inFade 0.6s 3.2s ease-out both;">
+      <span style="position:absolute;inset:0;font-family:'Inter',system-ui,sans-serif;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:#8A8698;animation:inStatus 9s 3.2s linear infinite both;">Mapping fulfilment &amp; inventory flows</span>
+      <span style="position:absolute;inset:0;font-family:'Inter',system-ui,sans-serif;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:#8A8698;animation:inStatus 9s 6.2s linear infinite both;">Wiring data across your stack</span>
+      <span style="position:absolute;inset:0;font-family:'Inter',system-ui,sans-serif;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:#8A8698;animation:inStatus 9s 9.2s linear infinite both;">Infrastructure ready — enter when you are</span>
+    </div>
+  </div>
+
+  </div>
+  </sc-if>
+
+  <button onClick="{{replay}}" style="position:fixed;right:28px;bottom:26px;z-index:70;font-family:'Inter',system-ui,sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#8A8698;background:#FFFFFF;border:1px solid #E2E2EA;border-radius:999px;padding:9px 16px;cursor:pointer;opacity:0;animation:inFade 0.5s 3.6s ease-out both;transition:color .2s ease,border-color .2s ease;" style-hover="color:#111111;border-color:#111111;">Replay</button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoLoop&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;loopSeconds&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:12,&quot;min&quot;:6,&quot;max&quot;:40,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;}}">
+class Component extends DCLogic {
+  state = { playing: true };
+  componentDidMount() {
+    if (this.props.autoLoop) {
+      const s = (this.props.loopSeconds ?? 12) * 1000;
+      this.loop = setInterval(() => this.restart(), s);
+    }
+  }
+  componentWillUnmount() { clearInterval(this.loop); clearTimeout(this.t); }
+  restart() {
+    this.setState({ playing: false });
+    this.t = setTimeout(() => this.setState({ playing: true }), 70);
+  }
+  enter() {
+    if (typeof this.props.onEnter === 'function') this.props.onEnter();
+    else window.location.href = 'Home.dc.html';
+  }
+  renderVals() {
+    return { playing: this.state.playing, replay: () => this.restart(), enter: (e) => { e.preventDefault(); this.enter(); } };
+  }
+}
+
+</script>
+</body>
+</html>

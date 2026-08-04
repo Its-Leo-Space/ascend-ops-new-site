@@ -1,0 +1,29 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/Home.dc.html" },
+    { "source": "/home", "destination": "/Home.dc.html" },
+    { "source": "/solutions", "destination": "/Solutions.dc.html" },
+    { "source": "/process", "destination": "/Process.dc.html" },
+    { "source": "/investment", "destination": "/Price.dc.html" },
+    { "source": "/company", "destination": "/Company.dc.html" },
+    { "source": "/contact", "destination": "/WorkWithUs.dc.html" },
+    { "source": "/privacy", "destination": "/Privacy.dc.html" },
+    { "source": "/terms", "destination": "/Terms.dc.html" }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/_ds/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/(.*).dc.html",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+    }
+  ]
+}

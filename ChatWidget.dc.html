@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/styles.css">
+  <script src="_ds/ascend-ai-design-system-9028147f-44c3-4b16-a370-3586912d767f/_ds_bundle.js"></script>
+  <style>
+    @keyframes ascend-chat-wiggle {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      12% { transform: rotate(-10deg) scale(1.03); }
+      24% { transform: rotate(9deg) scale(1.03); }
+      36% { transform: rotate(-8deg) scale(1.02); }
+      48% { transform: rotate(7deg) scale(1.02); }
+      60% { transform: rotate(-5deg) scale(1.01); }
+      72% { transform: rotate(4deg) scale(1.01); }
+      84% { transform: rotate(-2deg) scale(1); }
+    }
+  </style>
+</helmet>
+
+<div style="position:fixed;right:24px;bottom:24px;z-index:200;font-family:var(--font-body);display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+
+  <sc-if value="{{showLabel}}" hint-placeholder-val="{{true}}">
+    <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-pill);padding:8px 16px;font-size:0.85rem;color:var(--black);font-weight:600;box-shadow:var(--shadow-card);">Questions? Ask away →</div>
+  </sc-if>
+
+  <sc-if value="{{open}}" hint-placeholder-val="{{false}}">
+    <div style="width:368px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-overlay-card);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border-light);">
+      <div style="background:var(--black);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:0.95rem;color:var(--white);">Ask Ascend Ops</div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:2px;">
+            <span style="width:6px;height:6px;border-radius:50%;background:var(--code-green);box-shadow:0 0 0 2px rgba(63,185,80,0.18);"></span>
+            <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted-dark);">answers in seconds</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <sc-if value="{{hasMessages}}" hint-placeholder-val="{{false}}">
+            <button onClick="{{handleEmailSummary}}" disabled="{{emailing}}" aria-label="Email this conversation to us" title="Email this conversation to us" style="background:none;border:none;color:var(--white);cursor:pointer;padding:4px;opacity:0.7;" style-hover="opacity:1;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            </button>
+          </sc-if>
+          <button onClick="{{toggleOpen}}" aria-label="Close chat" style="background:none;border:none;color:var(--white);font-size:1.3rem;line-height:1;cursor:pointer;padding:4px;opacity:0.7;" style-hover="opacity:1;">×</button>
+        </div>
+      </div>
+
+      <div ref="{{scrollRef}}" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;background:var(--off-white);">
+        <sc-if value="{{showLeadForm}}" hint-placeholder-val="{{true}}">
+          <div style="font:var(--text-body-sm);color:var(--gray-1);margin-bottom:12px;">Welcome to Ascend Ops. Share a bit about your business and we'll help you find the gaps holding you back.</div>
+          <form onSubmit="{{handleLeadSubmit}}" style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px;">
+            <input value="{{leadName}}" onChange="{{handleLeadNameChange}}" placeholder="Your name" required="{{true}}" style="padding:10px 12px;border-radius:var(--radius-md);border:1px solid var(--border-light);font-size:0.85rem;font-family:var(--font-body);">
+            <input value="{{leadCompany}}" onChange="{{handleLeadCompanyChange}}" placeholder="Company" required="{{true}}" style="padding:10px 12px;border-radius:var(--radius-md);border:1px solid var(--border-light);font-size:0.85rem;font-family:var(--font-body);">
+            <input value="{{leadEmail}}" onChange="{{handleLeadEmailChange}}" type="email" placeholder="Work email" required="{{true}}" style="padding:10px 12px;border-radius:var(--radius-md);border:1px solid var(--border-light);font-size:0.85rem;font-family:var(--font-body);">
+            <button type="submit" style="margin-top:2px;background:var(--black);color:var(--white);border:none;border-radius:var(--radius-pill);padding:11px 14px;font-size:0.85rem;font-weight:600;cursor:pointer;" style-hover="opacity:0.85;">Start chatting →</button>
+          </form>
+          <div style="font:var(--text-body-sm);font-size:0.78rem;color:var(--gray-2);">Question outside our scope? Email us directly at <a href="mailto:talk@ascendops.co" style="color:var(--black);font-weight:600;">talk@ascendops.co</a>.</div>
+        </sc-if>
+
+        <sc-if value="{{showSuggestions}}" hint-placeholder-val="{{false}}">
+          <div style="font:var(--text-body-sm);color:var(--gray-1);margin-bottom:4px;">Thanks, {{leadFirstName}} — ask about our offers, pricing, process, or how to get started, or pick one below. For anything else, email <a href="mailto:talk@ascendops.co" style="color:var(--black);font-weight:600;">talk@ascendops.co</a>.</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <sc-for list="{{suggestions}}" as="sug" hint-placeholder-count="3">
+              <button onClick="{{sug.onClick}}" style="text-align:left;background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:10px 14px;font-size:0.85rem;color:var(--black);cursor:pointer;" style-hover="opacity:0.7;">{{sug.label}}</button>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <sc-for list="{{messages}}" as="m" hint-placeholder-count="0">
+          <div style="display:flex;justify-content:{{m.align}};">
+            <div style="max-width:82%;background:{{m.bg}};color:{{m.color}};border:{{m.border}};border-radius:var(--radius-md);padding:10px 14px;font-size:0.88rem;line-height:1.55;">
+              <sc-if value="{{m.imagePreview}}" hint-placeholder-val="{{false}}">
+                <img src="{{m.imagePreview}}" alt="Attached image" style="max-width:100%;max-height:160px;border-radius:var(--radius-sm);display:block;margin-bottom:{{m.content ? '8px' : '0'}};">
+              </sc-if>
+              <span style="white-space:pre-wrap;">{{m.content}}</span>
+            </div>
+          </div>
+        </sc-for>
+
+        <sc-if value="{{loading}}" hint-placeholder-val="{{false}}">
+          <div style="display:flex;justify-content:flex-start;">
+            <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:10px 14px;font-family:var(--font-mono);font-size:0.85rem;color:var(--gray-2);">thinking…</div>
+          </div>
+        </sc-if>
+      </div>
+
+      <sc-if value="{{attachment}}" hint-placeholder-val="{{false}}">
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 14px 0;background:var(--white);">
+          <span style="font-size:0.78rem;color:var(--gray-1);background:var(--off-white);border:1px solid var(--border-light);border-radius:var(--radius-pill);padding:5px 10px;display:flex;align-items:center;gap:6px;max-width:100%;overflow:hidden;">
+            <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:220px;">{{attachment.name}}</span>
+            <button onClick="{{clearAttachment}}" aria-label="Remove attachment" style="background:none;border:none;cursor:pointer;color:var(--gray-2);font-size:0.9rem;line-height:1;padding:0;">×</button>
+          </span>
+        </div>
+      </sc-if>
+      <form onSubmit="{{handleSubmit}}" style="display:flex;gap:8px;padding:14px;border-top:1px solid var(--border-light);background:var(--white);flex-shrink:0;align-items:center;">
+        <label style="width:38px;height:38px;flex-shrink:0;border-radius:50%;border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-1);" style-hover="opacity:0.7;" aria-label="Attach image or file">
+          <input type="file" onChange="{{handleFileChange}}" accept="image/*,.pdf,.doc,.docx,.txt,.csv" style="display:none;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+        </label>
+        <input value="{{input}}" onChange="{{handleInputChange}}" placeholder="Ask a question…" style="flex:1;min-width:0;padding:11px 14px;border-radius:var(--radius-pill);border:1px solid var(--border-light);font-size:0.9rem;font-family:var(--font-body);">
+        <button type="submit" aria-label="Send" style="width:40px;height:40px;flex-shrink:0;border-radius:50%;background:var(--black);color:var(--white);border:none;cursor:pointer;font-size:1rem;" style-hover="opacity:0.8;">→</button>
+      </form>
+    </div>
+  </sc-if>
+
+  <button onClick="{{toggleOpen}}" aria-label="Open chat" style="width:56px;height:56px;border-radius:50%;background:var(--black);color:var(--white);border:none;cursor:pointer;box-shadow:var(--shadow-overlay-card);display:flex;align-items:center;justify-content:center;transition:opacity 0.15s ease;animation:{{launcherAnimation}};" style-hover="opacity:0.85;">
+    <sc-if value="{{open}}" hint-placeholder-val="{{false}}">
+      <span style="font-size:1.4rem;line-height:1;">×</span>
+    </sc-if>
+    <sc-if value="{{closed}}" hint-placeholder-val="{{true}}">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+    </sc-if>
+  </button>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SYSTEM_PROMPT = `You are the on-site assistant for Ascend Ops, a D2C AI Infrastructure firm serving Shopify/D2C ecommerce brands doing $1M\u2013$20M ARR.
+
+VOICE: direct, infrastructure-flavored, low-hype, sentence case, no exclamation points. Short answers — 2\u20134 sentences, occasional short dash-bullets. Never invent facts not in this brief; if unsure or asked something outside scope, say so and point to talk@ascendops.co or booking a Strategy Call.
+
+POSITIONING: Not an AI agency, not a SaaS platform. Ascend Ops designs and builds custom detection, response, and data-unification systems inside a brand's existing stack (Shopify, Klaviyo, Gorgias, ad accounts, POS) and hands the system over fully documented. Three people, bootstrapped, take 3 clients/month.
+
+THREE OFFERS (named systems, enter on one, expand later):
+1. Creative Intelligence Loop (CIL) \u2014 monitors Meta ad accounts continuously, detects frequency saturation / ROAS decay over 14 days / dead spend (0 conversions, 7+ days), auto-pauses dead spend, and routes a structured creative brief to the team. Entry offer for all tiers, fastest path to ROI.
+2. Deep-Sync Voice Agents \u2014 support agent reading live Shopify/Klaviyo/Gorgias data (not scripts) to resolve WISMO, returns, delivery, product questions. Tier 1: Shopify-native ($1M\u2013$5M brands). Tier 2: ERP-integrated ($5M+ brands).
+3. Omnichannel CDP Middleware \u2014 unifies POS and online customer identity so Klaviyo/Meta/CRM work off one record; stops acquisition spend targeting existing customers. Qualifying offer for $5M+ brands with physical retail.
+
+PROCESS \u2014 the SPARK framework: Survey (Diagnostic Audit + Ops Canvas) \u2192 Prioritize (Opportunity Matrix + ROI Calculator) \u2192 Architect (Systems Architecture Proposal, sign-off before code) \u2192 Realize (build, QA, UAT, go-live, 24h SLA first 30 days) \u2192 Knowledge Transfer (full docs, training, handover \u2014 client owns everything).
+
+ENGAGEMENT & PRICING: Free 30-min Strategy Call first. If it's a fit, a paid Systems Architecture Audit ($750, credited in full against any build) takes 48\u201372 hours and produces the Ops Canvas, Opportunity Matrix, and ROI Calculator \u2014 kept even if the client doesn't proceed. Indicative build pricing (finalized only after the Audit): CIL $4,000\u2013$5,000 setup / $1,500\u2013$2,500 monthly retainer; Voice Agents Tier 1 $3,000\u2013$5,000 setup / $1,000\u2013$2,000 retainer, Tier 2 $7,000\u2013$10,000 setup / $2,500\u2013$4,000 retainer; CDP Middleware $8,000\u2013$12,000 setup / $3,000\u2013$5,000 retainer. Retainer is month-to-month, no lock-in. Client owns the system, docs, and code at handover.
+
+CONTACT: talk@ascendops.co, or book a Strategy Call from the Contact page.
+
+If asked for legal/contractual specifics, exact timelines for a specific business, or anything requiring a human judgment call, say a Strategy Call or email is the right next step rather than guessing.
+
+FORMAT: plain text only, ever. Never use markdown of any kind — no **bold**, no *italics*, no # headers, no backticks, no markdown bullet or numbered lists. Write in plain sentences. If you need a list, use short lines starting with a plain dash "-" and a space, nothing else.`;
+
+function stripMarkdown(text) {
+  if (!text) return text;
+  return text
+    .replace(/\*\*\*(.+?)\*\*\*/g, '$1')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/(?<!\*)\*(?!\*)([^*\n]+?)\*(?!\*)/g, '$1')
+    .replace(/__(.+?)__/g, '$1')
+    .replace(/(?<!_)_([^_\n]+?)_(?!_)/g, '$1')
+    .replace(/`{1,3}([^`]+?)`{1,3}/g, '$1')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/^\s*[-*+]\s+/gm, '- ')
+    .replace(/^\s*\d+\.\s+/gm, '');
+}
+
+class Component extends DCLogic {
+  state = { open: false, messages: [], input: '', loading: false, attachment: null, wiggling: true, showLabel: true, lead: null, leadName: '', leadCompany: '', leadEmail: '', emailing: false };
+
+  componentDidMount() {
+    this._wiggleTimer = setTimeout(() => this.setState({ wiggling: false }), 5000);
+    this._labelTimer = setTimeout(() => this.setState({ showLabel: false }), 8000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._wiggleTimer);
+    clearTimeout(this._labelTimer);
+  }
+
+  scrollToBottom = (el) => {
+    if (!el) return;
+    this._scrollEl = el;
+    el.scrollTop = el.scrollHeight;
+  };
+
+  componentDidUpdate() {
+    if (this._scrollEl) this._scrollEl.scrollTop = this._scrollEl.scrollHeight;
+  }
+
+  toggleOpen = () => this.setState((s) => ({ open: !s.open, showLabel: false }));
+
+  handleInputChange = (e) => this.setState({ input: e.target.value });
+
+  handleFileChange = (e) => {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) {
+      this.setState((s) => ({
+        messages: [...s.messages, { role: 'assistant', content: `That file is a bit large for me to take inline (5MB limit). Mind emailing it to talk@ascendops.co instead?` }],
+      }));
+      return;
+    }
+    const isImage = file.type.startsWith('image/');
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataUrl = reader.result;
+      const base64 = dataUrl.split(',')[1];
+      this.setState({ attachment: { name: file.name, mimeType: file.type, isImage, base64, dataUrl } });
+    };
+    reader.readAsDataURL(file);
+  };
+
+  clearAttachment = () => this.setState({ attachment: null });
+
+  sendMessage = async (text) => {
+    const trimmed = text.trim();
+    const attachment = this.state.attachment;
+    if (!trimmed && !attachment) return;
+    if (this.state.loading) return;
+
+    let apiContent;
+    if (attachment && attachment.isImage) {
+      apiContent = [
+        { type: 'text', text: trimmed || 'Take a look at this image.' },
+        { type: 'image', source: { type: 'base64', media_type: attachment.mimeType, data: attachment.base64 } },
+      ];
+    } else if (attachment) {
+      apiContent = `${trimmed}\n\n[User attached a file named "${attachment.name}" — its contents can't be read, only images can be viewed. If it matters, ask them to describe it or email talk@ascendops.co.]`;
+    } else {
+      apiContent = trimmed;
+    }
+
+    const userMsg = {
+      role: 'user',
+      content: trimmed || (attachment ? `Sent ${attachment.name}` : ''),
+      imagePreview: attachment && attachment.isImage ? attachment.dataUrl : null,
+      apiContent,
+    };
+    const history = [...this.state.messages, userMsg];
+    this.setState({ messages: history, input: '', attachment: null, loading: true });
+    try {
+      const reply = await window.claude.complete({
+        system: SYSTEM_PROMPT,
+        messages: history.map((m) => ({ role: m.role, content: m.apiContent !== undefined ? m.apiContent : m.content })),
+        model: 'claude-haiku-4-5',
+        max_tokens: 400,
+      });
+      const cleanReply = stripMarkdown(reply);
+      this.setState((s) => ({ messages: [...s.messages, { role: 'assistant', content: cleanReply, apiContent: reply }], loading: false }));
+    } catch (err) {
+      this.setState((s) => ({
+        messages: [...s.messages, { role: 'assistant', content: 'Something went wrong on my end. Email talk@ascendops.co and we\u2019ll pick it up directly.', apiContent: 'Something went wrong on my end.' }],
+        loading: false,
+      }));
+    }
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.sendMessage(this.state.input);
+  };
+
+  handleLeadNameChange = (e) => this.setState({ leadName: e.target.value });
+  handleLeadCompanyChange = (e) => this.setState({ leadCompany: e.target.value });
+  handleLeadEmailChange = (e) => this.setState({ leadEmail: e.target.value });
+
+  handleLeadSubmit = (e) => {
+    e.preventDefault();
+    const name = this.state.leadName.trim();
+    const company = this.state.leadCompany.trim();
+    const email = this.state.leadEmail.trim();
+    if (!name || !company || !email) return;
+    this.setState({ lead: { name, company, email } });
+  };
+
+  handleEmailSummary = async () => {
+    if (this.state.emailing || this.state.messages.length === 0) return;
+    this.setState({ emailing: true });
+    const lead = this.state.lead || {};
+    const transcript = this.state.messages
+      .map((m) => `${m.role === 'user' ? (lead.name || 'Visitor') : 'Ascend Ops'}: ${m.content}`)
+      .join('\n');
+    try {
+      const summaryRaw = await window.claude.complete({
+        system: 'You write concise internal sales-inbox summaries of website chat transcripts for the Ascend Ops team. Plain text only, no markdown, no headers, no bold. Use short dash-bulleted lines "- " for lists only.',
+        messages: [{
+          role: 'user',
+          content: `Lead: name=${lead.name || 'unknown'}, company=${lead.company || 'unknown'}, email=${lead.email || 'unknown'}\n\nWrite: 1) a 2-3 sentence summary of what this visitor wants, 2) a short "Actionable next steps" list (dash-bulleted) for our team.\n\nTranscript:\n${transcript}`,
+        }],
+        model: 'claude-haiku-4-5',
+        max_tokens: 400,
+      });
+      const summary = stripMarkdown(summaryRaw);
+      const subject = `Chat lead: ${lead.name || 'Website visitor'}${lead.company ? ' - ' + lead.company : ''}`;
+      const body = `Name: ${lead.name || ''}\nCompany: ${lead.company || ''}\nEmail: ${lead.email || ''}\n\n${summary}\n\n--- Full transcript ---\n${transcript}`;
+      window.location.href = `mailto:talk@ascendops.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      this.setState((s) => ({
+        messages: [...s.messages, { role: 'assistant', content: 'Opening your email client with a summary addressed to talk@ascendops.co \u2014 just hit send.' }],
+        emailing: false,
+      }));
+    } catch (err) {
+      this.setState((s) => ({
+        messages: [...s.messages, { role: 'assistant', content: 'Couldn\u2019t put that summary together automatically \u2014 email us directly at talk@ascendops.co.' }],
+        emailing: false,
+      }));
+    }
+  };
+
+  suggestionFor(label) {
+    if (!this._sugHandlers) this._sugHandlers = {};
+    if (!this._sugHandlers[label]) {
+      this._sugHandlers[label] = () => this.sendMessage(label);
+    }
+    return this._sugHandlers[label];
+  }
+
+  renderVals() {
+    const messages = this.state.messages.map((m) => ({
+      content: m.content,
+      align: m.role === 'user' ? 'flex-end' : 'flex-start',
+      bg: m.role === 'user' ? 'var(--black)' : 'var(--white)',
+      color: m.role === 'user' ? 'var(--white)' : 'var(--black)',
+      border: m.role === 'user' ? 'none' : '1px solid var(--border-light)',
+    }));
+
+    const suggestionLabels = [
+      'What does Ascend Ops actually build?',
+      'How much does this cost?',
+      'What happens on the Strategy Call?',
+    ];
+
+    const isEmpty = this.state.messages.length === 0;
+    return {
+      open: this.state.open,
+      closed: !this.state.open,
+      isEmpty,
+      showLeadForm: isEmpty && !this.state.lead,
+      showSuggestions: isEmpty && !!this.state.lead,
+      hasMessages: this.state.messages.length > 0,
+      leadName: this.state.leadName,
+      leadCompany: this.state.leadCompany,
+      leadEmail: this.state.leadEmail,
+      leadFirstName: this.state.lead ? this.state.lead.name.split(' ')[0] : '',
+      emailing: this.state.emailing,
+      messages,
+      loading: this.state.loading,
+      input: this.state.input,
+      attachment: this.state.attachment,
+      showLabel: this.state.showLabel && !this.state.open,
+      launcherAnimation: this.state.wiggling ? 'ascend-chat-wiggle 2.5s ease-in-out 2' : 'none',
+      toggleOpen: this.toggleOpen,
+      handleInputChange: this.handleInputChange,
+      handleFileChange: this.handleFileChange,
+      clearAttachment: this.clearAttachment,
+      handleSubmit: this.handleSubmit,
+      handleLeadNameChange: this.handleLeadNameChange,
+      handleLeadCompanyChange: this.handleLeadCompanyChange,
+      handleLeadEmailChange: this.handleLeadEmailChange,
+      handleLeadSubmit: this.handleLeadSubmit,
+      handleEmailSummary: this.handleEmailSummary,
+      scrollRef: this.scrollToBottom,
+      suggestions: suggestionLabels.map((label) => ({ label, onClick: this.suggestionFor(label) })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>
