@@ -1,0 +1,46 @@
+:root {
+  /* ---- Base palette ---- */
+  --black: #0B0F17;
+  --near-black: #141414;
+  --white: #F8FAFC;
+  --off-white: #EEF1F5;
+  --gray-1: #6B6B6B;
+  --gray-2: #9A9A9A;
+  --gray-3: #2A2A2A;
+  --border-light: #E5E5E3;
+
+  /* Single restrained accent — amber/gold. Used only for "NEW" badges and tiny highlights. */
+  --accent: #4F46E5;
+  --accent-ink: #2E2A9E;
+
+  /* Code / terminal-mockup syntax colors — used only inside code-UI cards */
+  --code-green: #3FB950;
+  --code-red: #F85149;
+  --code-blue: #4F46E5;
+  --code-purple: #BC8CFF;
+  --code-bg: #141414;
+  --code-border: #2A2A2A;
+  --code-text: #C9C9C9;
+
+  /* ---- Semantic aliases ---- */
+  --surface-page-light: var(--white);
+  --surface-page-tint: var(--off-white);
+  --surface-page-dark: var(--black);
+  --surface-card-light: var(--white);
+  --surface-card-dark: var(--near-black);
+
+  --text-heading-light: var(--black);
+  --text-heading-dark: var(--white);
+  --text-body-light: var(--gray-1);
+  --text-body-dark: #B8B8B8;
+  --text-muted-light: var(--gray-2);
+  --text-muted-dark: #6E6E6E;
+
+  --border-on-light: var(--border-light);
+  --border-on-dark: var(--gray-3);
+
+  --btn-primary-bg: var(--black);
+  --btn-primary-fg: var(--white);
+  --btn-primary-bg-on-dark: var(--white);
+  --btn-primary-fg-on-dark: var(--black);
+}

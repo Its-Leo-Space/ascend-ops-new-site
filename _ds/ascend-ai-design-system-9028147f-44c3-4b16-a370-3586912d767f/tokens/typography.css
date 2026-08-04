@@ -1,0 +1,22 @@
+:root {
+  --font-heading: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Inter', system-ui, sans-serif;
+
+  /* Dramatic heading/body contrast is the signature of this system */
+  --text-h1: 600 clamp(2.75rem, 6vw, 6.5rem)/0.98 var(--font-heading);
+  --text-h2: 600 clamp(2rem, 4vw, 3.5rem)/1.05 var(--font-heading);
+  --text-h3: 600 1.75rem/1.15 var(--font-heading);
+  --text-h4: 600 1.25rem/1.25 var(--font-heading);
+
+  --text-body-lg: 400 1.25rem/1.6 var(--font-body);
+  --text-body: 400 1.0625rem/1.65 var(--font-body);
+  --text-body-sm: 400 0.9375rem/1.55 var(--font-body);
+
+  --text-mono-eyebrow: 500 0.8rem/1 var(--font-mono);
+  --text-mono-code: 400 0.875rem/1.7 var(--font-mono);
+
+  --tracking-tight: -0.03em;
+  --tracking-normal: -0.01em;
+  --tracking-mono: 0.02em;
+}
