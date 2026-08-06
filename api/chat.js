@@ -16,9 +16,15 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
+
+    if (!response.ok) {
+      console.error('NVIDIA API Error Details:', JSON.stringify(data));
+      return res.status(response.status).json({ error: data.error?.message || 'NVIDIA API error' });
+    }
+
     res.status(200).json(data);
   } catch (error) {
-    console.error('NVIDIA API Error:', error);
+    console.error('Server Execution Error:', error);
     res.status(500).json({ error: 'Failed to fetch from NVIDIA' });
   }
 }
