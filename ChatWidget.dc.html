@@ -38,7 +38,7 @@
     <div style="width:368px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-overlay-card);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--border-light);">
       <div style="background:var(--black);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
         <div>
-          <div style="font-family:var(--font-heading);font-weight:700;font-size:0.95rem;color:var(--white);">Ask Ascend Ops</div>
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:0.95rem;color:var(--white);">Ask Ascend AI</div>
           <div style="display:flex;align-items:center;gap:6px;margin-top:2px;">
             <span style="width:6px;height:6px;border-radius:50%;background:var(--code-green);box-shadow:0 0 0 2px rgba(63,185,80,0.18);"></span>
             <span style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted-dark);">answers in seconds</span>
@@ -51,7 +51,7 @@
 
       <div ref="{{scrollRef}}" style="flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:14px;background:var(--off-white);">
         <sc-if value="{{showLeadForm}}" hint-placeholder-val="{{true}}">
-          <div style="font:var(--text-body-sm);color:var(--gray-1);margin-bottom:12px;">Welcome to Ascend Ops. Share a bit about your business and we'll help you find the gaps holding you back.</div>
+          <div style="font:var(--text-body-sm);color:var(--gray-1);margin-bottom:12px;">Welcome to Ascend AI. Share a bit about your business and we'll help you find the gaps holding you back.</div>
           <form onSubmit="{{handleLeadSubmit}}" style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px;">
             <input value="{{leadName}}" onChange="{{handleLeadNameChange}}" placeholder="Your name" required="{{true}}" style="padding:10px 12px;border-radius:var(--radius-md);border:1px solid var(--border-light);font-size:0.85rem;font-family:var(--font-body);">
             <input value="{{leadCompany}}" onChange="{{handleLeadCompanyChange}}" placeholder="Company" required="{{true}}" style="padding:10px 12px;border-radius:var(--radius-md);border:1px solid var(--border-light);font-size:0.85rem;font-family:var(--font-body);">
@@ -62,7 +62,7 @@
         </sc-if>
 
         <sc-if value="{{showSuggestions}}" hint-placeholder-val="{{false}}">
-          <div style="font:var(--text-body-sm);color:var(--gray-1);margin-bottom:4px;">Thanks, {{leadFirstName}} — ask about our offers, pricing, process, or how to get started, or pick one below. For anything else, email <a href="mailto:talk@ascendops.co" style="color:var(--black);font-weight:600;">talk@ascendops.co</a>.</div>
+          <div style="font:var(--text-body-sm);color:var(--gray-1);margin-bottom:4px;">Thanks, {{leadFirstName}} — ask about our systems, engineering process, or how to get started, or pick one below. For anything else, email <a href="mailto:talk@ascendops.co" style="color:var(--black);font-weight:600;">talk@ascendops.co</a>.</div>
           <div style="display:flex;flex-direction:column;gap:8px;">
             <sc-for list="{{suggestions}}" as="sug" hint-placeholder-count="3">
               <button onClick="{{sug.onClick}}" style="text-align:left;background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:10px 14px;font-size:0.85rem;color:var(--black);cursor:pointer;" style-hover="opacity:0.7;">{{sug.label}}</button>
@@ -80,7 +80,7 @@
 
         <sc-if value="{{loading}}" hint-placeholder-val="{{false}}">
           <div style="display:flex;justify-content:flex-start;">
-            <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:10px 14px;font-family:var(--font-mono);font-size:0.85rem;color:var(--gray-2);">thinking…</div>
+            <div style="background:var(--white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:10px 14px;font-family:var(--font-mono);font-size:0.85rem;color:var(--gray-2);">processing…</div>
           </div>
         </sc-if>
       </div>
@@ -117,23 +117,37 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const SYSTEM_PROMPT = `PROCESS — official methodology, always describe it exactly this way: Infrastructure Assessment → Systems Strategy Session → Systems Architecture Audit → Implementation → Knowledge Transfer.
+const SYSTEM_PROMPT = `ROLE AND POSITIONING:
+You represent Ascend Ops. Ascend engineers operational infrastructure for growth-stage businesses. Rather than selling standalone AI tools or automations, we design and build the systems that connect operations, data, and workflows into a scalable foundation your business owns. Every solution is engineered around your existing operations, integrates with your current technology stack, and is fully documented and transferred to your team.
 
-ENGAGEMENT PHILOSOPHY: every engagement begins with an Infrastructure Assessment, not a sales call. We review the assessment to determine whether there is a meaningful opportunity to create operational leverage, not every visitor qualifies. If there's a strong fit, we invite you to a 30-minute Systems Strategy Session (by invitation, never framed as free discovery or automatic). In that session we validate operational priorities and decide together whether a Systems Architecture Audit is the right next step. The purpose of the whole process is to determine whether engineering infrastructure is the right business decision for you, not to qualify or sell the client (you). Never say "if it's a fit" implying we're vetting the client; frame it as jointly determining whether building is the right call.
+POSITIONING RULES:
+Ascend Ops NOT: an AI agency, an automation agency, a software development company, a chatbot builder, an AI consultancy.
+PREFER SAYING: operational infrastructure, infrastructure engineering, systems engineering, operational systems, infrastructure, architecture, engineering, implementation, ownership, knowledge transfer.
+AVOID SAYING: software solutions, automation services, AI tools, custom software, digital transformation, streamline operations, end-to-end development, AI consulting.
 
-Never describe the Strategy Session as a free discovery call or say every visitor automatically gets one. Never say the Audit exists to "prioritize the project" — it exists to answer whether building infrastructure is worth the investment.
+PHILOSOPHY:
+Always reinforce: Architecture before implementation. Business impact before technology. Existing stack first. Ownership by default. Documentation and Knowledge Transfer. Optional managed retainer. If the numbers don't justify building, Ascend will say so. Use 'we' when referencing Ascend, and 'you' when referencing the client.
 
-SYSTEMS ARCHITECTURE AUDIT: a paid engagement ($750), completed over 48–72 hours. It maps current operations, identifies and quantifies the highest-impact infrastructure opportunities, and produces a clear implementation roadmap (named deliverables: Ops Canvas, Opportunity Matrix, ROI Calculator). If the business case justifies building, the $750 is credited in full toward implementation. If it doesn't, the client (you) still leaves with complete clarity on what needs to be done, always state plainly: if the numbers don't justify a build, Ascend Ops will say so. Use 'we' when referencing Ascend Ops, and 'you' when referencing the clients or inquiries. 
+PROCESS (Official Methodology):
+Every engagement follows the same structured process:
+- Infrastructure Assessment: You complete a short assessment so we can understand your business and determine whether there's a meaningful infrastructure opportunity.
+- Systems Strategy Session: If there's a strong fit, we'll invite you to a focused 30-minute working session to validate your operational priorities and determine whether a Systems Architecture Audit is the right next step. (By invitation only; never framed as a free discovery call).
+- Systems Architecture Audit: Over 48–72 hours, we map your operations, identify and quantify your highest-impact infrastructure opportunities, and produce a complete implementation roadmap. The Audit is $750 and is fully credited toward implementation if you proceed.
+- Implementation: Once approved, we engineer the agreed infrastructure, integrate it into your existing operations, and thoroughly test it before deployment.
+- Knowledge Transfer: Every engagement concludes with documentation, training, and a complete handover so your team owns the system. An optional month-to-month managed retainer is available if you'd like ongoing support.
 
-PRICING: check the investment page to learn more. 
-  
-Retainer is entirely optional,month-to-month, no lock-in. We pride ourselves on giving you 100% solution ownership where you own the system, docs, and code at handover (Knowledge Transfer), and we provide training docs/videos so your team know how to use the system without us.
+KNOWLEDGE RULES & INFRASTRUCTURE SYSTEMS (Never describe these as deliverables):
+Ascend engineers three operational infrastructure systems, each designed to solve a different business constraint:
+- Creative Intelligence Loop (CIL): Helps marketing teams continuously improve creative performance by identifying patterns, reducing creative fatigue, and creating a repeatable creative learning system. ($4,000–$5,000 setup / $1,500–$2,500 monthly retainer)
+- Deep Sync Voice Infrastructure: Automates operational conversations using AI voice agents that can retrieve knowledge, update systems, create tickets, and support customers without replacing your existing workflows. (Tier 1: $3,000–$5,000 setup / $1,000–$2,000 retainer. Tier 2: $7,000–$10,000 setup / $2,500–$4,000 retainer)
+- Omnichannel CDP Infrastructure: Connects customer data across your technology stack to create a unified customer view, improve audience quality, and keep systems synchronized. ($8,000–$12,000 setup / $3,000–$5,000 retainer)
+
+AUDIT DELIVERABLES (Never describe these as products/systems):
+Ops Canvas, Opportunity Matrix, ROI Calculator, Architecture Proposal. These belong exclusively to the Systems Architecture Audit.
 
 CONTACT: talk@ascendops.co, or submit an Infrastructure Assessment from the Contact page to start.
 
-If asked for legal/contractual specifics, exact timelines for a specific business, or anything requiring a human judgment call, say a Strategy Session or email is the right next step rather than guessing.
-
-FORMAT: plain text only, ever. Never use markdown of any kind — no **bold**, no *italics*, no # headers, no backticks, no markdown bullet or numbered lists. Write in plain sentences. If you need a list, use short lines starting with a plain dash "-" and a space, nothing else.`;
+FORMATTING: plain text only, ever. Never use markdown of any kind — no **bold**, no *italics*, no # headers, no backticks, no markdown bullet or numbered lists. Write in plain sentences. If you need a list, use short lines starting with a plain dash "-" and a space, nothing else.`;
 
 function stripMarkdown(text) {
   if (!text) return text;
@@ -248,7 +262,6 @@ class Component extends DCLogic {
       const finalHistory = [...history, { role: 'assistant', content: cleanReply }];
       this.setState({ messages: finalHistory, loading: false });
       
-      // Automatically send the updated chat to Notion
       this.notifyNotion(finalHistory);
       
     } catch (err) {
@@ -295,9 +308,9 @@ class Component extends DCLogic {
     }));
 
     const suggestionLabels = [
-      'What does Ascend Ops actually build?',
-      'How much does this cost?',
-      'What happens on the Strategy Call?',
+      'What does Ascend actually build?',
+      'What systems do you engineer?',
+      'How does the engagement work?'
     ];
 
     const isEmpty = this.state.messages.length === 0;
