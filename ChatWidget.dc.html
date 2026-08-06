@@ -45,11 +45,6 @@
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:6px;">
-          <sc-if value="{{hasMessages}}" hint-placeholder-val="{{false}}">
-            <button onClick="{{handleEmailSummary}}" disabled="{{emailing}}" aria-label="Email this conversation to us" title="Email this conversation to us" style="background:none;border:none;color:var(--white);cursor:pointer;padding:4px;opacity:0.7;" style-hover="opacity:1;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-            </button>
-          </sc-if>
           <button onClick="{{toggleOpen}}" aria-label="Close chat" style="background:none;border:none;color:var(--white);font-size:1.3rem;line-height:1;cursor:pointer;padding:4px;opacity:0.7;" style-hover="opacity:1;">×</button>
         </div>
       </div>
@@ -78,9 +73,6 @@
         <sc-for list="{{messages}}" as="m" hint-placeholder-count="0">
           <div style="display:flex;justify-content:{{m.align}};">
             <div style="max-width:82%;background:{{m.bg}};color:{{m.color}};border:{{m.border}};border-radius:var(--radius-md);padding:10px 14px;font-size:0.88rem;line-height:1.55;">
-              <sc-if value="{{m.imagePreview}}" hint-placeholder-val="{{false}}">
-                <img src="{{m.imagePreview}}" alt="Attached image" style="max-width:100%;max-height:160px;border-radius:var(--radius-sm);display:block;margin-bottom:{{m.content ? '8px' : '0'}};">
-              </sc-if>
               <span style="white-space:pre-wrap;">{{m.content}}</span>
             </div>
           </div>
@@ -102,8 +94,8 @@
         </div>
       </sc-if>
       <form onSubmit="{{handleSubmit}}" style="display:flex;gap:8px;padding:14px;border-top:1px solid var(--border-light);background:var(--white);flex-shrink:0;align-items:center;">
-        <label style="width:38px;height:38px;flex-shrink:0;border-radius:50%;border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-1);" style-hover="opacity:0.7;" aria-label="Attach image or file">
-          <input type="file" onChange="{{handleFileChange}}" accept="image/*,.pdf,.doc,.docx,.txt,.csv" style="display:none;">
+        <label style="width:38px;height:38px;flex-shrink:0;border-radius:50%;border:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gray-1);" style-hover="opacity:0.7;" aria-label="Attach file">
+          <input type="file" onChange="{{handleFileChange}}" accept=".pdf,.doc,.docx,.txt,.csv" style="display:none;">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
         </label>
         <input value="{{input}}" onChange="{{handleInputChange}}" placeholder="Ask a question…" style="flex:1;min-width:0;padding:11px 14px;border-radius:var(--radius-pill);border:1px solid var(--border-light);font-size:0.9rem;font-family:var(--font-body);">
@@ -161,11 +153,12 @@ function stripMarkdown(text) {
 }
 
 class Component extends DCLogic {
-  state = { open: false, messages: [], input: '', loading: false, attachment: null, wiggling: true, showLabel: true, lead: null, leadName: '', leadCompany: '', leadEmail: '', emailing: false };
+  state = { open: false, messages: [], input: '', loading: false, attachment: null, wiggling: true, showLabel: true, lead: null, leadName: '', leadCompany: '', leadEmail: '' };
 
   componentDidMount() {
     this._wiggleTimer = setTimeout(() => this.setState({ wiggling: false }), 5000);
     this._labelTimer = setTimeout(() => this.setState({ showLabel: false }), 8000);
+    this._sessionId = 'session_' + Date.now() + Math.random().toString(36).substring(2, 9);
   }
 
   componentWillUnmount() {
@@ -191,23 +184,33 @@ class Component extends DCLogic {
     const file = e.target.files && e.target.files[0];
     e.target.value = '';
     if (!file) return;
-    if (file.size > 5 * 1024 * 1024) {
-      this.setState((s) => ({
-        messages: [...s.messages, { role: 'assistant', content: `That file is a bit large for me to take inline (5MB limit). Mind emailing it to talk@ascendops.co instead?` }],
-      }));
-      return;
-    }
-    const isImage = file.type.startsWith('image/');
-    const reader = new FileReader();
-    reader.onload = () => {
-      const dataUrl = reader.result;
-      const base64 = dataUrl.split(',')[1];
-      this.setState({ attachment: { name: file.name, mimeType: file.type, isImage, base64, dataUrl } });
-    };
-    reader.readAsDataURL(file);
+    this.setState({ attachment: { name: file.name } });
   };
 
   clearAttachment = () => this.setState({ attachment: null });
+
+  notifyNotion = async (currentMessages) => {
+    const lead = this.state.lead || {};
+    const transcript = currentMessages
+      .map((m) => `${m.role === 'user' ? (lead.name || 'Visitor') : 'Ascend Ops'}: ${m.content}`)
+      .join('\n');
+    
+    try {
+      await fetch('/api/notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          transcript: transcript,
+          sessionId: this._sessionId,
+          name: lead.name,
+          email: lead.email,
+          company: lead.company
+        })
+      });
+    } catch (e) {
+      console.error('Failed to save to Notion');
+    }
+  };
 
   sendMessage = async (text) => {
     const trimmed = text.trim();
@@ -215,38 +218,45 @@ class Component extends DCLogic {
     if (!trimmed && !attachment) return;
     if (this.state.loading) return;
 
-    let apiContent;
-    if (attachment && attachment.isImage) {
-      apiContent = [
-        { type: 'text', text: trimmed || 'Take a look at this image.' },
-        { type: 'image', source: { type: 'base64', media_type: attachment.mimeType, data: attachment.base64 } },
-      ];
-    } else if (attachment) {
-      apiContent = `${trimmed}\n\n[User attached a file named "${attachment.name}" — its contents can't be read, only images can be viewed. If it matters, ask them to describe it or email talk@ascendops.co.]`;
-    } else {
-      apiContent = trimmed;
+    let userContent = trimmed;
+    if (attachment) {
+      userContent = trimmed 
+        ? `${trimmed}\n\n[User attached a file named "${attachment.name}"]`
+        : `[User attached a file named "${attachment.name}"]`;
     }
 
-    const userMsg = {
-      role: 'user',
-      content: trimmed || (attachment ? `Sent ${attachment.name}` : ''),
-      imagePreview: attachment && attachment.isImage ? attachment.dataUrl : null,
-      apiContent,
-    };
+    const userMsg = { role: 'user', content: userContent };
     const history = [...this.state.messages, userMsg];
+    
     this.setState({ messages: history, input: '', attachment: null, loading: true });
+    
     try {
-      const reply = await window.claude.complete({
-        system: SYSTEM_PROMPT,
-        messages: history.map((m) => ({ role: m.role, content: m.apiContent !== undefined ? m.apiContent : m.content })),
-        model: 'claude-haiku-4-5',
-        max_tokens: 400,
+      const apiMessages = [
+        { role: 'system', content: SYSTEM_PROMPT },
+        ...history.map((m) => ({ role: m.role, content: m.content }))
+      ];
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: apiMessages })
       });
+
+      if (!response.ok) throw new Error('API Error');
+      
+      const data = await response.json();
+      const reply = data.choices[0].message.content;
       const cleanReply = stripMarkdown(reply);
-      this.setState((s) => ({ messages: [...s.messages, { role: 'assistant', content: cleanReply, apiContent: reply }], loading: false }));
+      
+      const finalHistory = [...history, { role: 'assistant', content: cleanReply }];
+      this.setState({ messages: finalHistory, loading: false });
+      
+      // Automatically send the updated chat to Notion
+      this.notifyNotion(finalHistory);
+      
     } catch (err) {
       this.setState((s) => ({
-        messages: [...s.messages, { role: 'assistant', content: 'Something went wrong on my end. Email talk@ascendops.co and we\u2019ll pick it up directly.', apiContent: 'Something went wrong on my end.' }],
+        messages: [...s.messages, { role: 'assistant', content: 'Something went wrong on my end. Email talk@ascendops.co and we\u2019ll pick it up directly.' }],
         loading: false,
       }));
     }
@@ -268,39 +278,6 @@ class Component extends DCLogic {
     const email = this.state.leadEmail.trim();
     if (!name || !company || !email) return;
     this.setState({ lead: { name, company, email } });
-  };
-
-  handleEmailSummary = async () => {
-    if (this.state.emailing || this.state.messages.length === 0) return;
-    this.setState({ emailing: true });
-    const lead = this.state.lead || {};
-    const transcript = this.state.messages
-      .map((m) => `${m.role === 'user' ? (lead.name || 'Visitor') : 'Ascend Ops'}: ${m.content}`)
-      .join('\n');
-    try {
-      const summaryRaw = await window.claude.complete({
-        system: 'You write concise internal sales-inbox summaries of website chat transcripts for the Ascend Ops team. Plain text only, no markdown, no headers, no bold. Use short dash-bulleted lines "- " for lists only.',
-        messages: [{
-          role: 'user',
-          content: `Lead: name=${lead.name || 'unknown'}, company=${lead.company || 'unknown'}, email=${lead.email || 'unknown'}\n\nWrite: 1) a 2-3 sentence summary of what this visitor wants, 2) a short "Actionable next steps" list (dash-bulleted) for our team.\n\nTranscript:\n${transcript}`,
-        }],
-        model: 'claude-haiku-4-5',
-        max_tokens: 400,
-      });
-      const summary = stripMarkdown(summaryRaw);
-      const subject = `Chat lead: ${lead.name || 'Website visitor'}${lead.company ? ' - ' + lead.company : ''}`;
-      const body = `Name: ${lead.name || ''}\nCompany: ${lead.company || ''}\nEmail: ${lead.email || ''}\n\n${summary}\n\n--- Full transcript ---\n${transcript}`;
-      window.location.href = `mailto:talk@ascendops.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      this.setState((s) => ({
-        messages: [...s.messages, { role: 'assistant', content: 'Opening your email client with a summary addressed to talk@ascendops.co \u2014 just hit send.' }],
-        emailing: false,
-      }));
-    } catch (err) {
-      this.setState((s) => ({
-        messages: [...s.messages, { role: 'assistant', content: 'Couldn\u2019t put that summary together automatically \u2014 email us directly at talk@ascendops.co.' }],
-        emailing: false,
-      }));
-    }
   };
 
   suggestionFor(label) {
@@ -338,7 +315,6 @@ class Component extends DCLogic {
       leadCompany: this.state.leadCompany,
       leadEmail: this.state.leadEmail,
       leadFirstName: this.state.lead ? this.state.lead.name.split(' ')[0] : '',
-      emailing: this.state.emailing,
       messages,
       loading: this.state.loading,
       input: this.state.input,
@@ -354,7 +330,6 @@ class Component extends DCLogic {
       handleLeadCompanyChange: this.handleLeadCompanyChange,
       handleLeadEmailChange: this.handleLeadEmailChange,
       handleLeadSubmit: this.handleLeadSubmit,
-      handleEmailSummary: this.handleEmailSummary,
       scrollRef: this.scrollToBottom,
       suggestions: suggestionLabels.map((label) => ({ label, onClick: this.suggestionFor(label) })),
     };
