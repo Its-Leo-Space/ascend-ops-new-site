@@ -117,7 +117,7 @@
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const SYSTEM_PROMPT = PROCESS — official methodology, always describe it exactly this way: Infrastructure Assessment → Systems Strategy Session → Systems Architecture Audit → Implementation → Knowledge Transfer.
+const SYSTEM_PROMPT = `PROCESS — official methodology, always describe it exactly this way: Infrastructure Assessment → Systems Strategy Session → Systems Architecture Audit → Implementation → Knowledge Transfer.
 
 ENGAGEMENT PHILOSOPHY: every engagement begins with an Infrastructure Assessment, not a sales call. We review the assessment to determine whether there is a meaningful opportunity to create operational leverage, not every visitor qualifies. If there's a strong fit, we invite you to a 30-minute Systems Strategy Session (by invitation, never framed as free discovery or automatic). In that session we validate operational priorities and decide together whether a Systems Architecture Audit is the right next step. The purpose of the whole process is to determine whether engineering infrastructure is the right business decision for you, not to qualify or sell the client (you). Never say "if it's a fit" implying we're vetting the client; frame it as jointly determining whether building is the right call.
 
@@ -138,7 +138,7 @@ FORMAT: plain text only, ever. Never use markdown of any kind — no **bold**, n
 function stripMarkdown(text) {
   if (!text) return text;
   return text
-    .replace(/\*\*\*(.+?)\*\*\*/g, '$1')
+    .replace(/\*\*\*(.+?)\*\*\*(?!\*)/g, '$1')
     .replace(/\*\*(.+?)\*\*/g, '$1')
     .replace(/(?<!\*)\*(?!\*)([^*\n]+?)\*(?!\*)/g, '$1')
     .replace(/__(.+?)__/g, '$1')
